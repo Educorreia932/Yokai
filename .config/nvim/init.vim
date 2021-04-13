@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -35,3 +36,10 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 " Paste mode
 set pastetoggle=<F3>
+
+" Latex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=2
+let g:tex_conceal='abdmg'

@@ -109,3 +109,7 @@ hi htmlTagName guifg=#BD3220
 " Python 
 
 hi pythonBuiltin guifg=#E32D2D 
+
+" Latex
+
+hi clear Conceal
