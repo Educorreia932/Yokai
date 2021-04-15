@@ -17,4 +17,4 @@ sudo apt install nodejs
 
 git config --global user.email "skelozard1@gmail.com"
 git config --global user.name "Educorreia932"
-
+git config --global core.editor "nvim"
