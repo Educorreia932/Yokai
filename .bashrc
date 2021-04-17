@@ -116,3 +116,5 @@ if ! shopt -oq posix; then
   fi
 fi
 [ -f "/home/educorreia/.ghcup/env" ] && source "/home/educorreia/.ghcup/env" # ghcup-env
+
+EDITOR=nvim

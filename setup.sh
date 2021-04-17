@@ -2,9 +2,9 @@
 
 # Copy files
 
-if [ -d "~/Dotfiles" ]
+if [ -d "Dotfiles" ]
 then 
-    rsync -avzP ~/Dotfiles/* ~/
+    rsync -a ~/Dotfiles/* ~/
 fi
 
 # vim-plug 
