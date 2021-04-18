@@ -117,5 +117,19 @@ if ! shopt -oq posix; then
 fi
 [ -f "/home/educorreia/.ghcup/env" ] && source "/home/educorreia/.ghcup/env" # ghcup-env
 
+# Set default editor
 EDITOR=nvim
+
+# Start bash in home directory
 cd ~
+
+# Start paperview
+
+PAPERVIEW_FOLDER="/opt/paperview" 
+
+if [ -d $PAPERVIEW_FOLDER ]; then
+    PAPERVIEW_SPEED=10
+    PAPERVIEW_SCENE=no-face
+
+    $PAPERVIEW_FOLDER/paperview $PAPERVIEW_FOLDER/scenes/$PAPERVIEW_SCENE $PAPERVIEW_SPEED &
+fi
