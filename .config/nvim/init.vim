@@ -5,6 +5,7 @@ set termguicolors
 colorscheme oblivion
 
 set ts=4 sts=4 sw=4 expandtab
+set mouse=a
 
 call plug#begin('~/.vim/plugged')
 
@@ -48,3 +49,4 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=2
 let g:tex_conceal='abdmg'
+
