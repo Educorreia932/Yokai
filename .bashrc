@@ -120,9 +120,6 @@ fi
 # Set default editor
 EDITOR=nvim
 
-# Start bash in home directory
-cd ~
-
 # Start paperview
 
 PAPERVIEW_FOLDER="/opt/paperview" 
