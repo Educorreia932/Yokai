@@ -120,13 +120,6 @@ fi
 # Set default editor
 EDITOR=nvim
 
-# Start paperview
+# Wallpaper
+feh --bg-fill ~/wallpaper.png
 
-PAPERVIEW_FOLDER="/opt/paperview" 
-
-if [ -d $PAPERVIEW_FOLDER ]; then
-    PAPERVIEW_SPEED=10
-    PAPERVIEW_SCENE=totoro
-
-    $PAPERVIEW_FOLDER/paperview $PAPERVIEW_FOLDER/scenes/$PAPERVIEW_SCENE $PAPERVIEW_SPEED &
-fi

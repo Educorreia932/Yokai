@@ -166,16 +166,13 @@ bindsym $mod+r mode "resize"
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-for_window [class=".*"] border pixel 0
-
-# i3-gaps #
-
 # Necessary for i3-gaps to work properly (pixel can be any value)
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 0 
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 20
 gaps outer 0
+border_radius 10
 
 # Gaps mode
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
