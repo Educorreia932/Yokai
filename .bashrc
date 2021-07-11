@@ -120,6 +120,5 @@ fi
 # Set default editor
 EDITOR=nvim
 
-# Wallpaper
-feh --bg-fill ~/wallpaper.png
+export PATH="/snap/bin/:$PATH"
 
