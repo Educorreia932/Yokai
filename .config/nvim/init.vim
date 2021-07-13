@@ -13,6 +13,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
+Plug 'dstein64/nvim-scrollview'
 
 call plug#end()
 
