@@ -4,6 +4,7 @@
 !.config
 !.bashrc
 !.hushlogin
+!run.sh
 !setup.sh
 !preview.png
 .config/nvim/.netrwhist

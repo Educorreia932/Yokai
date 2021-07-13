@@ -7,6 +7,7 @@ colorscheme oblivion
 set ts=4 sts=4 sw=4 expandtab
 set mouse=a
 
+" Plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -14,6 +15,8 @@ Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
 Plug 'dstein64/nvim-scrollview'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -65,3 +68,4 @@ let g:clipboard = {
           \   },
           \   'cache_enabled': 0,
           \ }
+
