@@ -15,7 +15,7 @@ let g:colors_name = "oblivion"
 "hi CTagsMember -- no settings --
 "hi CTagsGlobalConstant -- no settings --
 "hi Ignore -- no settings --
-hi Normal guifg=#d8d8d8 guibg=#1E1E1E guisp=#192224 gui=NONE ctermfg=188 ctermbg=235 cterm=NONE
+hi Normal guifg=#d8d8d8 guibg=#1E1E1E guisp=#192224 gui=NONE ctermfg=188 ctermbg=235
 "hi CTagsImport -- no settings --
 "hi CTagsGlobalVariable -- no settings --
 "hi EnumerationValue -- no settings --
@@ -99,7 +99,6 @@ hi Macro guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=1 ctermbg=NONE cte
 hi Underlined guifg=#F9F9FF guibg=#192224 guisp=#192224 gui=underline ctermfg=189 ctermbg=235 cterm=underline
 hi DiffAdd guifg=NONE guibg=#193224 guisp=#193224 gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
 
-
 " HTML
 hi htmlString guifg=#FFC600
 hi htmlTagName guifg=#BD3220
@@ -109,3 +108,4 @@ hi pythonBuiltin guifg=#E32D2D
 
 " Latex
 hi clear Conceal
+
