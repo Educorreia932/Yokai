@@ -7,4 +7,5 @@
 !run.sh
 !setup.sh
 !preview.png
+!.LESS_TERMCAP
 .config/nvim/.netrwhist
