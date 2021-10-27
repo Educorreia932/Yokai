@@ -4,7 +4,7 @@
 
 if [ -d "Dotfiles" ]
 then 
-    rsync -a ~/Dotfiles/* ~/
+    rsync -a $HOME/Dotfiles/* $HOME/
 fi
 
 # Git configuration
