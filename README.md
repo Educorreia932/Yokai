@@ -8,12 +8,11 @@ For the moment, these are the configurations I use in Debian/WSL, but this repos
 
 These are some of the applications that I use in my current setup.
 
-- **Distribution:** Debian
+- **Distribution:** Ubuntu
 - **Window Manager:** i3-gaps
 - **Shell:** bash
 - **Terminal:** Alacritty
 - **Text Editor:** NeoVim
-- **File Manager:** Thunar
 
 ## 📷 Screenshot
 

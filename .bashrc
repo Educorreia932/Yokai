@@ -123,3 +123,6 @@ EDITOR=nvim
 export PATH="/snap/bin/:$PATH"
 
 alias run="~/run.sh"
+
+export PATH="$HOME/.local/bin:$PATH"
+
