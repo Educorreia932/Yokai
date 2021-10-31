@@ -172,7 +172,6 @@ for_window [class="^.*"] border pixel 0
 # Set inner/outer gaps
 gaps inner 20
 gaps outer 0
-# border_radius 10
 
 # Gaps mode
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
@@ -185,7 +184,11 @@ set $mode_gaps_right Right Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_bottom Bottom Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_left Left Gaps: +|-|0 (local), Shift + +|-|0 (global)
 
+# Flameshot
 bindsym Print exec flameshot gui
 
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/132146.png
+# Wallpaper
+exec_always --no-startup-id "wal -R"
 
+# Keyboard layout
+exec_always --no-startup-id "setxkbmap -layout en"

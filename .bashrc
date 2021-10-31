@@ -126,3 +126,4 @@ alias run="~/run.sh"
 
 export PATH="$HOME/.local/bin:$PATH"
 
+(cat ~/.cache/wal/sequences &)
