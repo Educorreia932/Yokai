@@ -1,8 +1,6 @@
 set number
 
 syntax enable
-set termguicolors
-colorscheme oblivion
 
 set ts=4 sts=4 sw=4 expandtab
 set mouse=a
@@ -17,8 +15,10 @@ Plug 'lervag/vimtex'
 Plug 'dstein64/nvim-scrollview'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
+
 
 " COC
 " Make <Tab> used for trigger completion, completion confirm, snippet expand and jump
@@ -56,18 +56,6 @@ let g:tex_conceal='abdmg'
 
 " Clipboard
 set clipboard+=unnamedplus
-let g:clipboard = {
-          \   'name': 'win32yank-wsl',
-          \   'copy': {
-          \      '+': 'win32yank.exe -i --crlf',
-          \      '*': 'win32yank.exe -i --crlf',
-          \    },
-          \   'paste': {
-          \      '+': 'win32yank.exe -o --lf',
-          \      '*': 'win32yank.exe -o --lf',
-          \   },
-          \   'cache_enabled': 0,
-          \ }
 
 " Wildmode
 set wildcharm=<C-Z>
@@ -75,3 +63,5 @@ cnoremap <expr> <up> wildmenumode() ? "\<left>" : "\<up>"
 cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
 cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
+
+colorscheme wal
