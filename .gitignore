@@ -8,4 +8,5 @@
 !setup.sh
 !preview.png
 !.LESS_TERMCAP
+!.xinitrc
 .config/nvim/.netrwhist
