@@ -6,6 +6,7 @@ set ts=4 sts=4 sw=4 expandtab
 set mouse=a
 
 " Plug
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -21,6 +22,7 @@ call plug#end()
 
 
 " COC
+
 " Make <Tab> used for trigger completion, completion confirm, snippet expand and jump
 inoremap <silent><expr> <TAB>
        \ pumvisible() ? coc#_select_confirm() :
@@ -64,6 +66,12 @@ cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
 cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
 
+" Use PyWal to set colorscheme
 colorscheme wal
 
+" Automatically change working directory when opening NeoVim
 set autochdir
+
+" Prevent NeoVim from wrapping lines in the middle of a word
+set linebreak
+
