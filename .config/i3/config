@@ -106,11 +106,11 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
@@ -191,4 +191,13 @@ bindsym Print exec flameshot gui
 exec_always --no-startup-id "wal -R"
 
 # Keyboard layout
-exec_always --no-startup-id "setxkbmap -layout en"
+exec_always --no-startup-id "setxkbmap -layout pt"
+
+# Picom
+exec_always --no-startup-id "picom"
+
+# Workspace naming 
+exec_always --no-startup-id "$HOME/.cargo/bin/i3wsr"
+
+# Scroll trough workspaces
+bindsym --whole-window $mod+Tab workspace next_on_output
