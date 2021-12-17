@@ -1,7 +1,10 @@
 *
 !.gitignore
 !README.md
-!.config/*
+!.config/alacritty/**
+!.config/i3/**
+!.config/nvim/**
+!.config/polybar/**
 !.bashrc
 !.hushlogin
 !run.sh
@@ -9,4 +12,3 @@
 !preview.png
 !.LESS_TERMCAP
 !.xinitrc
-.config/nvim/.netrwhist
