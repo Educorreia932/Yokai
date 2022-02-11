@@ -15,6 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'dstein64/nvim-scrollview'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
@@ -52,6 +53,8 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=2
 let g:tex_conceal='abdmg'
+let g:livepreview_engine="xelatex"
+let g:vimtex_compiler_engine="xelatex"
 
 " Clipboard
 set clipboard+=unnamedplus

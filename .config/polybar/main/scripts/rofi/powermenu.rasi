@@ -27,8 +27,8 @@ window {
 prompt {
     enabled: 						true;
 	padding: 						0px 5px 5px 0px;
-	background-color: 				@al;
-	text-color: 					@bar;
+	background-color: 				@bga;
+	text-color: 					@fg;
 }
 
 textbox-prompt-colon {
