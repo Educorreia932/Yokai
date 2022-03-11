@@ -69,11 +69,18 @@ cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
 
 " Use PyWal to set colorscheme
-colorscheme wal
+try 
+    colorscheme wal
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme oblivion 
+endtry
 
 " Automatically change working directory when opening NeoVim
 set autochdir
 
 " Prevent NeoVim from wrapping lines in the middle of a word
 set linebreak
+
+" Auto source when writing to init.vm alternatively you can run :source $MYVIMRCi
+au! BufWritePost $MYVIMRC source %      
 
