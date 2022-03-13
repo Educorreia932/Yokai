@@ -1,0 +1,18 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bashrc: .bashrc
+    ~/.hushlogin: .hushlogin
+    ~/.LESS_TERMCAP: .LESS_TERMCAP
+    ~/.profile: .profile
+    ~/.config/:
+        create: true
+        glob: true
+        path: .config/*
+        relink: true
+    ~/run.sh: run.sh
+    
