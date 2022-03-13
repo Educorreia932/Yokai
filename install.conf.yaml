@@ -13,6 +13,6 @@
         create: true
         glob: true
         path: .config/*
-        relink: true
     ~/run.sh: run.sh
+    ~/.gitconfig: .gitconfig
     

@@ -14,7 +14,13 @@ These are some of the applications that I use in my current setup.
 - **Terminal:** Alacritty
 - **Text Editor:** NeoVim
 
+## Instructions
+
+```sh
+./install
+sudo ./install -p dotbot_plugin_aptget/aptget.py -c packages.conf.yaml
+```
+
 ## 📷 Screenshot
 
 ![Preview](preview.png)
-
