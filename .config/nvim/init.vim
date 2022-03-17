@@ -20,6 +20,7 @@ Plug 'dstein64/nvim-scrollview'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'dylanaraps/wal.vim'
+Plug 'vim-scripts/quickrun.vim'
 
 call plug#end()
 
@@ -83,4 +84,6 @@ set linebreak
 
 " Auto source when writing to init.vm alternatively you can run :source $MYVIMRCi
 au! BufWritePost $MYVIMRC source %      
+
+nnoremap <F5> :QickRun<CR>
 
