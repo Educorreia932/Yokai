@@ -6,7 +6,7 @@ RUN apt install -y software-properties-common
 RUN apt install -y python3 python3-apt
 RUN apt install -y sudo 
 
-WORKDIR ~/Dotfiles
+WORKDIR '$HOME/Dotfiles'
 
 COPY . .
 

@@ -85,5 +85,5 @@ set linebreak
 " Auto source when writing to init.vm alternatively you can run :source $MYVIMRCi
 au! BufWritePost $MYVIMRC source %      
 
-nnoremap <F5> :QickRun<CR>
+nnoremap <F5> :QuickRun<CR>
 
