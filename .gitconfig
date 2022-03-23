@@ -3,3 +3,5 @@
 	name = Educorreia932
 [core]
 	editor = nvim
+[credential]
+	helper = store
