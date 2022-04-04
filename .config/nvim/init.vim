@@ -21,6 +21,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-scripts/quickrun.vim'
+Plug 'kyazdani42/nvim-web-devicons' 
+Plug 'akinsho/bufferline.nvim'
 
 call plug#end()
 
@@ -87,3 +89,7 @@ au! BufWritePost $MYVIMRC source %
 
 nnoremap <F5> :QuickRun<CR>
 
+" bufferline.nvim
+lua << EOF
+require("bufferline").setup{}
+EOF
