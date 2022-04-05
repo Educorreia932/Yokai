@@ -13,7 +13,7 @@
     ~/.config/:
         create: true
         glob: true
-        path: .config/*
+        path: config/*
     ~/run.sh: run.sh
     ~/.gitconfig: .gitconfig
     
