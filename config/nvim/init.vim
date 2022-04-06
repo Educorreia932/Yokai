@@ -93,3 +93,9 @@ nnoremap <F5> :QuickRun<CR>
 lua << EOF
 require("bufferline").setup{}
 EOF
+
+" Move cursor by display lines
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
