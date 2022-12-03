@@ -126,12 +126,7 @@ alias run="~/run.sh"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-
 if [[ -f  "$HOME/.cache/wal/sequences" ]]; then
     (cat ~/.cache/wal/sequences &)
-fi
-
-if [[ -f  "$HOME/.cargo/env" ]]; then
-    . "$HOME/.cargo/env"
 fi
 
