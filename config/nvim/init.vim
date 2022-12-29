@@ -9,6 +9,13 @@ set ts=4 sts=4 sw=4 expandtab
 set mouse=a
 
 " Plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,12 +78,7 @@ cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
 cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
 
-" Use PyWal to set colorscheme
-try 
-    colorscheme wal
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme oblivion 
-endtry
+colorscheme oblivion 
 
 " Automatically change working directory when opening NeoVim
 set autochdir
