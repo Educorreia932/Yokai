@@ -3,8 +3,6 @@
 filename="${1%%.*}"
 extension="${1##*.}"
 
-echo $filename
-
 case $extension in
     "cpp")  # C++
         g++ "$1" -o "$filename" 
@@ -18,11 +16,15 @@ case $extension in
         ./"$filename"
         rm "$filename"
         ;;
-    "py") # Python
+    "py")  # Python
         python3 "$1"
         ;;
+    "sh")  # Shell
+        chmod +x "./$1"
+        ./"$1"
+        ;;
     "")
-        echo "Usage: run language"
+        echo "Usage: run <file>"
         ;;
     *) 
         echo "This language is not supported or the file has the wrong extension."
