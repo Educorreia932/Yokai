@@ -15,4 +15,5 @@
         path: config/*
     ~/run: run.sh
     ~/.gitconfig: .gitconfig
-    
+    ~/.inputrc: .inputrc    
+   
