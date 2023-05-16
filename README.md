@@ -1,9 +1,17 @@
-# Educorreia932's Dotfiles
+# Educorreia932's Dotfiles 
 
-My current Linux dotfiles and scripts, managed using [Dotbot](https://github.com/anishathalye/dotbot).
+My current Linux dotfiles and scripts.
 
-## 📄 Instructions
+# 💻 System Information
 
-```sh
-./install
-```
+These are some of the applications that I use in my current setup.
+
+**Distribution:** Nix OS  
+**Desktop Environment:** Gnome  
+**Shell:** zsh  
+**Terminal:** Alacritty  
+**Text Editor:** NeoVim
+
+# 📷 Screenshot
+
+![Preview](preview.png)

@@ -1,7 +1,0 @@
-[user]
-	email = skelozard1@gmail.com
-	name = Educorreia932
-[core]
-	editor = nvim
-[credential]
-	helper = store
