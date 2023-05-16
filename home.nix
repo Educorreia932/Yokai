@@ -1,5 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+	applyFunction = (name: value: {
+		source = config.lib.file.mkOutOfStoreSymlink value.source;
+		target = value.target;
+	});
+in
 {
 	home.username = "eduardo";
 	home.homeDirectory = "/home/eduardo";
@@ -10,13 +16,13 @@
 
 	];
 
-	home.file = {
+	home.file = lib.mapAttrs applyFunction {
 		alacritty = {
-			source = config.lib.file.mkOutOfStoreSymlink "/home/eduardo/Dotfiles/alacritty";
+			source = "/home/eduardo/Dotfiles/alacritty";
 			target = "/home/eduardo/.config/alacritty";
 		};
 		nvim = {
-			source = config.lib.file.mkOutOfStoreSymlink "/home/eduardo/Dotfiles/nvim";
+			source = "/home/eduardo/Dotfiles/nvim";
 			target = "/home/eduardo/.config/nvim";
 		};
 	};
