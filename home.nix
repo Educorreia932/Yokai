@@ -6,7 +6,7 @@ let
 		target = value.target;
 	});
 in
-{
+rec {
 	home.username = "eduardo";
 	home.homeDirectory = "/home/eduardo";
 
@@ -18,12 +18,12 @@ in
 
 	home.file = lib.mapAttrs applyFunction {
 		alacritty = {
-			source = "/home/eduardo/Dotfiles/alacritty";
-			target = "/home/eduardo/.config/alacritty";
+			source = "${home.homeDirectory}/Dotfiles/alacritty";
+			target = "${home.homeDirectory}/.config/alacritty";
 		};
 		nvim = {
-			source = "/home/eduardo/Dotfiles/nvim";
-			target = "/home/eduardo/.config/nvim";
+			source = "${home.homeDirectory}/Dotfiles/nvim";
+			target = "${home.homeDirectory}/.config/nvim";
 		};
 	};
 
@@ -55,15 +55,8 @@ in
 					"sudo"
 					"git"
 				];
-				
 			};
-			initExtra = ''
-				# Load Wal colors
-				cat /home/eduardo/.cache/wal/sequences
-
-				# Remove duplicate commands from history
-				setopt hist_ignore_all_dups
-			'';
+			initExtra = builtins.readFile "${home.homeDirectory}/Dotfiles/zshrc";
 		};
 	};
 }
