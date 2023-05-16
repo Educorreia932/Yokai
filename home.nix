@@ -11,6 +11,10 @@
 	];
 
 	home.file = {
+		alacritty = {
+			source = config.lib.file.mkOutOfStoreSymlink "/home/eduardo/Dotfiles/alacritty";
+			target = "/home/eduardo/.config/alacritty";
+		};
 		nvim = {
 			source = config.lib.file.mkOutOfStoreSymlink "/home/eduardo/Dotfiles/nvim";
 			target = "/home/eduardo/.config/nvim";
