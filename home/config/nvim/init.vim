@@ -18,17 +18,24 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
+
+" Latex
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 Plug 'dstein64/nvim-scrollview'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-scripts/quickrun.vim'
+
+" Icons
+Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
+
 Plug 'akinsho/bufferline.nvim'
 
 call plug#end()

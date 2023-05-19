@@ -18,16 +18,17 @@ rec {
 
 	home.file = lib.mapAttrs applyFunction {
 		alacritty = {
-			source = "${home.homeDirectory}/Dotfiles/alacritty";
+			source = ./config/alacritty;
 			target = "${home.homeDirectory}/.config/alacritty";
 		};
 		nvim = {
-			source = "${home.homeDirectory}/Dotfiles/nvim";
+			source = ./config/nvim;
 			target = "${home.homeDirectory}/.config/nvim";
 		};
 	};
 
 	home.sessionVariables = {
+		
 	};
 
 	# Let Home Manager install and manage itself.
@@ -56,7 +57,7 @@ rec {
 					"git"
 				];
 			};
-			initExtra = builtins.readFile "${home.homeDirectory}/Dotfiles/zshrc";
+			initExtra = builtins.readFile ./config/zsh/zshrc;
 		};
 	};
 }
