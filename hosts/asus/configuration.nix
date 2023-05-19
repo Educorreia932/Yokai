@@ -9,7 +9,7 @@
 		[ 
 			# Include the results of the hardware scan.
 			./hardware-configuration.nix
-			./modules/asusctl.nix
+			../../modules/asusctl.nix
 		];
 
 	services.asusctl.enable = true;

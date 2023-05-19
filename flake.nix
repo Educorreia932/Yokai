@@ -12,11 +12,11 @@
 	outputs = inputs:
 	{
 		nixosConfigurations = {
-			eduardo = inputs.nixpkgs.lib.nixosSystem {
+			asus = inputs.nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
-					./configuration.nix
-					./hardware-configuration.nix
+					./hosts/asus/configuration.nix
+					./hosts/asus/hardware-configuration.nix
 					inputs.home-manager.nixosModules.home-manager {
 						home-manager = {
 							useUserPackages = true;
