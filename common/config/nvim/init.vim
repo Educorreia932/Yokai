@@ -23,15 +23,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 
-" Latex
-Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-
-Plug 'dstein64/nvim-scrollview'
-Plug 'vim-airline/vim-airline'
-Plug 'dylanaraps/wal.vim'
-Plug 'vim-scripts/quickrun.vim'
-
 " Icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
@@ -65,15 +56,6 @@ set pastetoggle=<F3>
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" Latex
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=2
-let g:tex_conceal='abdmg'
-let g:livepreview_engine="xelatex"
-let g:vimtex_compiler_engine="xelatex"
 
 " Clipboard
 set clipboard+=unnamedplus
