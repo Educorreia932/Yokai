@@ -37,7 +37,7 @@
             macbook = darwin.lib.darwinSystem {
                 system = "aarch64-darwin";
                 modules = [
-                    ./hosts/darwin
+                    ./hosts/macbook
                 ];
                 inputs = { inherit darwin home-manager nixpkgs; };
             };
