@@ -1,29 +1,21 @@
 { config, pkgs, lib, ... }:
 
-let
-	applyFunction = (name: value: {
-		source = config.lib.file.mkOutOfStoreSymlink value.source;
-		target = value.target;
-	});
-in
-rec {
-	home.username = "eduardo";
-	home.homeDirectory = "/home/eduardo";
-
+{
 	home.stateVersion = "22.11"; 
-
 	home.packages = [
 
 	];
 
-	home.file = lib.mapAttrs applyFunction {
+	home.file =  {
 		alacritty = {
 			source = ./config/alacritty;
-			target = "${home.homeDirectory}/.config/alacritty";
+			target = ".config/alacritty";
+			recursive = true;
 		};
 		nvim = {
 			source = ./config/nvim;
-			target = "${home.homeDirectory}/.config/nvim";
+			target = ".config/nvim";
+			recursive = true;
 		};
 	};
 
