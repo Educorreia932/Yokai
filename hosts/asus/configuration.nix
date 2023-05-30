@@ -23,6 +23,7 @@
 		enableDefaultFonts = true;
  
 		fonts = with pkgs; [ 
+			meslo-lg
 			noto-fonts
 			noto-fonts-cjk
 			twitter-color-emoji
@@ -36,7 +37,7 @@
 			defaultFonts = {
 				serif = [ "Ubuntu" "Noto Serif" "Noto Serif Japanese"];
 				sansSerif = [ "Ubuntu" "Noto Sans" "Noto Sans Japanese" ];
-				monospace = [ "Ubuntu Source" "Noto Sans Mono" ];
+				monospace = [ "Meslo LG M" "Ubuntu Source" "Noto Sans Mono" ];
 				emoji = [ "Twitter Color Emoji" ];
 			};
 		};
