@@ -7,9 +7,13 @@
 			url = github:nix-community/home-manager;
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+        darwin = {
+            url = github:LnL7/nix-darwin/master;
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 	};
 
-	outputs = inputs:
+	outputs = { self, darwin, home-manager, nixpkgs, ... }@inputs:
 	{
 		nixosConfigurations = {
 			asus = inputs.nixpkgs.lib.nixosSystem {
@@ -22,12 +26,21 @@
 							useUserPackages = true;
 							useGlobalPkgs = true;
 							extraSpecialArgs = {inherit inputs;};
-							users.eduardo = ./home/home.nix;
+							users.eduardo = import ./hosts/asus/home-manager.nix;
 						};
 					}
 				];
 				specialArgs = { inherit inputs; };
 			};
 		};
+        darwinConfigurations = {
+            macbook = darwin.lib.darwinSystem {
+                system = "aarch64-darwin";
+                modules = [
+                    ./hosts/darwin
+                ];
+                inputs = { inherit darwin home-manager nixpkgs; };
+            };
+        };
 	};
 }
