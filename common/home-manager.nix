@@ -10,10 +10,12 @@
 		alacritty = {
 			source = ./config/alacritty;
 			target = ".config/alacritty";
+			recursive = true;
 		};
 		nvim = {
 			source = ./config/nvim;
 			target = ".config/nvim";
+			recursive = true;
 		};
 	};
 

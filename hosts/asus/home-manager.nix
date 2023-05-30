@@ -6,7 +6,4 @@ in
 {
     home.username = "${user}";
     home.homeDirectory = "/home/${user}";
-	home.stateVersion = "22.11"; 
-    
-
-}
+} // import ../../common/home-manager.nix { config = config; pkgs = pkgs; lib = lib; }
