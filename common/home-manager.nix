@@ -17,6 +17,11 @@
 			target = ".config/nvim";
 			recursive = true;
 		};
+		i3 = {
+			source = ./config/i3;
+			target = ".config/i3";
+			recursive = true;
+		};
 	};
 
 	home.sessionVariables = {

@@ -79,7 +79,7 @@
 	# Enable the X11 windowing system.
 	services.xserver.enable = true;
 
-	# Enable the GNOME Desktop Environment.
+	# Enable i3 and GNOME Desktop Environment
 	services.xserver = {
 		desktopManager = {
 			gnome.enable = true;
@@ -88,6 +88,17 @@
 	
 		displayManager = {
 			gdm.enable = true;
+			# defaultSession = "none+i3";
+		};
+
+		windowManager.i3 = {
+			package = pkgs.i3-gaps;
+			enable = true;
+			extraPackages = with pkgs; [
+				dmenu 
+				i3status 
+				i3lock 
+			];
 		};
 	};
 
