@@ -15,3 +15,25 @@ These are some of the applications that I use in my current setup.
 # 📷 Screenshot
 
 ![Preview](preview.png)
+
+# Commands
+
+## Rebuild
+
+```sh
+sudo nixos-rebuild switch --flake .#asus
+```
+
+## ASUS CTL
+
+### Start service
+
+```sh
+systemctl start asusd
+```
+
+### Change settings
+
+```sh
+asusctl
+```

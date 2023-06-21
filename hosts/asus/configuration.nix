@@ -14,6 +14,7 @@
 
 	services.asusctl.enable = true;
 
+	# Enable experimental features
 	nix = {
 		settings.experimental-features = [ "nix-command" "flakes" ];
 	};
@@ -46,8 +47,6 @@
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
-	boot.loader.efi.efiSysMountPoint = "/boot/efi";
-	boot.supportedFilesystems = [ "ntfs" ];
 
 	networking.hostName = "nixos"; # Define your hostname.
 	# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -66,26 +65,31 @@
 	i18n.defaultLocale = "en_US.UTF-8";
 
 	i18n.extraLocaleSettings = {
-		LC_ADDRESS = "pt_PT.UTF-8";
-		LC_IDENTIFICATION = "pt_PT.UTF-8";
-		LC_MEASUREMENT = "pt_PT.UTF-8";
-		LC_MONETARY = "pt_PT.UTF-8";
-		LC_NAME = "pt_PT.UTF-8";
-		LC_NUMERIC = "pt_PT.UTF-8";
-		LC_PAPER = "pt_PT.UTF-8";
-		LC_TELEPHONE = "pt_PT.UTF-8";
-		LC_TIME = "pt_PT.UTF-8";
+		LC_ADDRESS = "en_GB.UTF-8";
+		LC_IDENTIFICATION = "en_GB.UTF-8";
+		LC_MEASUREMENT = "en_GB.UTF-8";
+		LC_MONETARY = "en_GB.UTF-8";
+		LC_NAME = "en_GB.UTF-8";
+		LC_NUMERIC = "en_GB.UTF-8";
+		LC_PAPER = "en_GB.UTF-8";
+		LC_TELEPHONE = "en_GB.UTF-8";
+		LC_TIME = "en_GB.UTF-8";
 	};
-
-	i18n.inputMethod.enabled = "ibus";
-	i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ mozc ];
 
 	# Enable the X11 windowing system.
 	services.xserver.enable = true;
 
 	# Enable the GNOME Desktop Environment.
-	services.xserver.displayManager.gdm.enable = true;
-	services.xserver.desktopManager.gnome.enable = true;
+	services.xserver = {
+		desktopManager = {
+			gnome.enable = true;
+			xterm.enable = false;
+		};
+	
+		displayManager = {
+			gdm.enable = true;
+		};
+	};
 
 	# Configure keymap in X11
 	services.xserver = {
@@ -126,6 +130,7 @@
 		extraGroups = [ "networkmanager" "wheel" ];
 		packages = with pkgs; [
 		#  thunderbird
+			spotify
 		];
 	};
 
@@ -152,12 +157,12 @@
 
 	programs = {
 		steam = {
-				enable = true;
-				remotePlay.openFirewall = true;      # Open ports in the firewall for Steam Remote Play
-				dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+			enable = true;
+			remotePlay.openFirewall = true;      # Open ports in the firewall for Steam Remote Play
+			dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 		};
 	};
-	
+
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
 	# programs.mtr.enable = true;
@@ -166,13 +171,16 @@
 	#   enableSSHSupport = true;
 	# };
 
-	# Nvidia drivers
-	services.xserver.videoDrivers = [ "nvidia" ];
+	# List services that you want to enable:
 
-	hardware.opengl.enable = true;
-	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+	# Enable the OpenSSH daemon.
+	# services.openssh.enable = true;
 
-	services.flatpak.enable = true;
+	# Open ports in the firewall.
+	# networking.firewall.allowedTCPPorts = [ ... ];
+	# networking.firewall.allowedUDPPorts = [ ... ];
+	# Or disable the firewall altogether.
+	# networking.firewall.enable = false;
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
@@ -180,5 +188,5 @@
 	# this value at the release version of the first install of this system.
 	# Before changing this value read the documentation for this option
 	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "22.11"; # Did you read the comment?
+	system.stateVersion = "23.05"; # Did you read the comment?
 }
