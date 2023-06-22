@@ -19,31 +19,6 @@
 		settings.experimental-features = [ "nix-command" "flakes" ];
 	};
 
-	# Fonts
-	fonts = {
-		enableDefaultFonts = true;
- 
-		fonts = with pkgs; [ 
-			meslo-lg
-			noto-fonts
-			noto-fonts-cjk
-			twitter-color-emoji
-			ubuntu_font_family
-			unifont
-			(nerdfonts.override { fonts = [ "FiraCode" ]; })
-		];
-
-		fontconfig = {
-			antialias = true;
-			defaultFonts = {
-				serif = [ "Ubuntu" "Noto Serif" "Noto Serif Japanese"];
-				sansSerif = [ "Ubuntu" "Noto Sans" "Noto Sans Japanese" ];
-				monospace = [ "Meslo LG M" "Ubuntu Source" "Noto Sans Mono" ];
-				emoji = [ "Twitter Color Emoji" ];
-			};
-		};
-	};
-
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
@@ -161,10 +136,32 @@
 		google-chrome
 		# Wayland clipboard utilities. Needed for NeoVim system clipboard support
 		wl-clipboard
-	];
+	# Fonts
+	fonts = {
+		enableDefaultFonts = true;
+ 
+		fonts = with pkgs; [ 
+			material-design-icons
+			meslo-lg
+			noto-fonts
+			noto-fonts-cjk-sans
+			noto-fonts-cjk-serif
+			twitter-color-emoji
+			ubuntu_font_family
+			unifont
+			(nerdfonts.override { fonts = [ "FiraCode" ]; })
+		];
 
-	programs.zsh.enable = true;
-	users.users.eduardo.shell = pkgs.zsh;
+		fontconfig = {
+			antialias = true;
+			defaultFonts = {
+				serif = [ "Ubuntu" "Noto Serif" "Noto Serif CJK JP"];
+				sansSerif = [ "Ubuntu" "Noto Sans" "Noto Sans CJK JP" ];
+				monospace = [ "Meslo LG M" "Ubuntu Source" "Noto Sans Mono" ];
+				emoji = [ "Twitter Color Emoji" ];
+			};
+		};
+	};
 
 	programs = {
 		steam = {
