@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 	imports =
@@ -133,9 +133,33 @@
 
 	# List packages installed in system profile. To search, run:
 	environment.systemPackages = with pkgs; [
-		google-chrome
-		# Wayland clipboard utilities. Needed for NeoVim system clipboard support
-		wl-clipboard
+		nodejs
+	];
+
+	boot.initrd.kernelModules = [ "nvidia" ];
+	boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];	
+
+	hardware.opengl.enable = true;
+
+  	services.xserver.videoDrivers = [ "nvidia" ];
+
+	hardware.nvidia = {
+		modesetting.enable = true;
+		powerManagement.enable = true;
+		open = true;
+		nvidiaSettings = true;
+		package = config.boot.kernelPackages.nvidiaPackages.stable;
+		prime = {
+			offload = {
+				enable = true;
+				enableOffloadCmd = true;
+			};
+
+			intelBusId = "PCI:0:2:0";
+			nvidiaBusId = "PCI:1:0:0";
+		};
+	};
+
 	# Fonts
 	fonts = {
 		enableDefaultFonts = true;

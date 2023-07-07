@@ -3,3 +3,5 @@ cat /home/eduardo/.cache/wal/sequences
 
 # Remove duplicate commands from history
 setopt hist_ignore_all_dups
+
+export XDG_DATA_HOME="$HOME/.local/share"
