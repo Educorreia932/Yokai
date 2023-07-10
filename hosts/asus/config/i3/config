@@ -197,3 +197,6 @@ exec_always --no-startup-id "xandr --dpi 125"
 
 # Polybar
 exec_always --no-startup-id "systemctl --user restart polybar.service"
+
+# Flameshot
+bindsym --release Print exec "flameshot gui"
