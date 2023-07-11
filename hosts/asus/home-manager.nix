@@ -4,10 +4,6 @@ with lib;
 
 let
     user = "eduardo";
-in
-{
-    home.username = "${user}";
-    home.homeDirectory = "/home/${user}";
 
     commonConfiguration = import ../../common/home-manager.nix { config = config; pkgs = pkgs; lib = lib; };
 
@@ -23,6 +19,37 @@ in
             };
 	    };
 
+        home.packages = with pkgs; [
+            google-chrome
+            flameshot
+            discord
+            gitkraken
+            obsidian
+        ];
+
+        services = {
+            polybar = {
+                enable = true;
+                package = pkgs.polybar.override {
+                    i3Support = true;
+                    alsaSupport = true;
+                    iwSupport = true;
+                    githubSupport = true;
+                };
+                config = ./config/polybar/bottom/config.ini;
+                script = "polybar &";
+            };
+        };
+
+        programs = {
+            rofi = {
+			    enable = true;
+		    };
+            vscode = {
+                enable = true;
+             };
+        };
+
         dconf.settings = {
             "org/gnome/desktop/peripherals/touchpad" = {
                 "tap-to-click" = true;
@@ -30,15 +57,6 @@ in
             };
             "org/gnome/desktop/interface" = {
                 "text-scaling-factor" = 1.00;
-            };
-        };
-
-        programs = {
-            pywal = {
-                enable = true;
-            };
-            vscode = {
-                enable = true;
             };
         };
     };
