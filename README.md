@@ -7,7 +7,8 @@ My current Linux dotfiles and scripts.
 These are some of the applications that I use in my current setup.
 
 **Distribution:** Nix OS  
-**Desktop Environment:** Gnome  
+**Desktop Environment:** i3
+**Bar:** Polybar
 **Shell:** zsh  
 **Terminal:** Alacritty  
 **Text Editor:** NeoVim
@@ -16,12 +17,20 @@ These are some of the applications that I use in my current setup.
 
 ![Preview](preview.png)
 
-# Commands
+# Useful Commands
 
 ## Rebuild
 
 ```sh
 sudo nixos-rebuild switch --flake .#asus
+```
+
+## Upgrade
+
+```sh
+nix flake upgrade
+
+sudo nixos-rebuild switch --flake .#asus --upgrade
 ```
 
 ## ASUS CTL
