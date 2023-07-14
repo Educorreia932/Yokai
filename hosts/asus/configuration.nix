@@ -118,7 +118,6 @@
 		description = "Eduardo Correia";
 		extraGroups = [ "networkmanager" "wheel" ];
 		packages = with pkgs; [
-		#  thunderbird
 			spotify
 		];
 	};
@@ -137,6 +136,7 @@
 	# List packages installed in system profile. To search, run:
 	environment.systemPackages = with pkgs; [
 		nodejs
+		haskellPackages.cabal-install
 	];
 
 	boot.initrd.kernelModules = [ "nvidia" ];
