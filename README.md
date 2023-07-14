@@ -7,8 +7,8 @@ My current Linux dotfiles and scripts.
 These are some of the applications that I use in my current setup.
 
 **Distribution:** Nix OS  
-**Desktop Environment:** i3
-**Bar:** Polybar
+**Desktop Environment:** i3  
+**Bar:** Polybar  
 **Shell:** zsh  
 **Terminal:** Alacritty  
 **Text Editor:** NeoVim
