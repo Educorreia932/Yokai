@@ -165,15 +165,16 @@
 
 	# Fonts
 	fonts = {
-		enableDefaultFonts = true;
+		enableDefaultPackages = false;
+		fontDir.enable = true;
  
-		fonts = with pkgs; [ 
+		packages = with pkgs; [ 
 			material-design-icons
 			meslo-lg
 			noto-fonts
 			noto-fonts-cjk-sans
 			noto-fonts-cjk-serif
-			twitter-color-emoji
+			noto-fonts-emoji
 			ubuntu_font_family
 			unifont
 			(nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -181,11 +182,12 @@
 
 		fontconfig = {
 			antialias = true;
+			localConf   = lib.fileContents ./config/fontconfig.xml;
 			defaultFonts = {
 				serif = [ "Ubuntu" "Noto Serif" "Noto Serif CJK JP"];
 				sansSerif = [ "Ubuntu" "Noto Sans" "Noto Sans CJK JP" ];
 				monospace = [ "Meslo LG M" "Ubuntu Source" "Noto Sans Mono" ];
-				emoji = [ "Twitter Color Emoji" ];
+				emoji = [ "Noto Color Emoji" ];
 			};
 		};
 	};
