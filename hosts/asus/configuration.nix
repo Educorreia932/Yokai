@@ -57,6 +57,9 @@
 	# Enable the X11 windowing system.
 	services.xserver.enable = true;
 
+	# Enable Flatpak
+	services.flatpak.enable = true;
+
 	# Enable i3 and GNOME Desktop Environment
 	services.xserver = {
 		desktopManager = {
