@@ -25,6 +25,8 @@ let
             discord
             gitkraken
             obsidian
+            jetbrains.webstorm
+            jetbrains.idea-ultimate
         ];
 
         services = {
