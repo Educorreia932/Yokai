@@ -3,6 +3,7 @@
 
 	inputs = {
 		nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; };
+		nur.url = github:nix-community/NUR;
 		home-manager = {
 			url = github:nix-community/home-manager;
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -13,12 +14,13 @@
         };
 	};
 
-	outputs = { self, darwin, home-manager, nixpkgs, ... }@inputs:
+	outputs = { self, darwin, home-manager, nixpkgs, nur, ... }@inputs:
 	{
 		nixosConfigurations = {
 			asus = inputs.nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
+					nur.nixosModules.nur
 					./hosts/asus/configuration.nix
 					./hosts/asus/hardware-configuration.nix
 					inputs.home-manager.nixosModules.home-manager {
