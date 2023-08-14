@@ -54,6 +54,11 @@
 		LC_TIME = "en_GB.UTF-8";
 	};
 
+	i18n.inputMethod = {
+		enabled = "ibus";
+  		ibus.engines = with pkgs.ibus-engines; [ mozc ];
+	};
+
 	# Enable the X11 windowing system.
 	services.xserver.enable = true;
 
@@ -85,8 +90,10 @@
 
 	# Configure keymap in X11
 	services.xserver = {
-		layout = "pt";
+		exportConfiguration = true; # link /usr/share/X11/ properly
+		layout = "pt,jp";
 		xkbVariant = "";
+        xkbOptions = "grp:win_space_toggle";
 	};
 
 	# Configure console keymap
