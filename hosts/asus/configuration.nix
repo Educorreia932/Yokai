@@ -17,6 +17,7 @@
 	# Enable experimental features
 	nix = {
 		settings.experimental-features = [ "nix-command" "flakes" ];
+		settings.trusted-users = [ "root" "eduardo" ];
 	};
 
 	# Bootloader.
