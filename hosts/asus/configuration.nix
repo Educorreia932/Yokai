@@ -14,7 +14,6 @@
 
 	services.asusctl.enable = true;
 
-	# Enable experimental features
 	nix = {
 		settings.experimental-features = [ "nix-command" "flakes" ];
 		settings.trusted-users = [ "root" "eduardo" ];
@@ -28,17 +27,15 @@
 	boot.supportedFilesystems = [ "ntfs" ];
 
 	networking.hostName = "nixos"; # Define your hostname.
-	# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-	# Configure network proxy if necessary
-	# networking.proxy.default = "http://user:password@proxy:port/";
-	# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	# Save space by hardlinking identical files in the Nix store
+  	nix.settings.auto-optimise-store = true;
 
 	# Enable networking
 	networking.networkmanager.enable = true;
 
 	# Set your time zone.
-	time.timeZone = "Asia/Tokyo";
+	time.timeZone = "Europe/Lisbon";
 
 	# Select internationalisation properties.
 	i18n.defaultLocale = "en_US.UTF-8";
@@ -123,7 +120,7 @@
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
-	# Define a user account. Don't forget to set a password with ‘passwd’.
+	# Define a user account.
 	users.users.eduardo = {
 		isNormalUser = true;
 		description = "Eduardo Correia";
@@ -158,12 +155,21 @@
 	environment.systemPackages = with pkgs; [
 		nodejs
 		haskellPackages.cabal-install
+  		(python3.withPackages (ps: with ps; [ 
+			jupyter
+			ipython
+			ipykernel
+			i3ipc 
+		]))
+		nur.repos.xeals.samrewritten
+		nur.repos.mikilio.xwaylandvideobridge
 	];
 
 	boot.initrd.kernelModules = [ "nvidia" ];
 	boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];	
 
 	hardware.opengl.enable = true;
+	hardware.opengl.driSupport32Bit = true;
 
   	services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -203,7 +209,7 @@
 
 		fontconfig = {
 			antialias = true;
-			localConf   = lib.fileContents ./config/fontconfig.xml;
+			localConf = lib.fileContents ./config/fontconfig.xml;
 			defaultFonts = {
 				serif = [ "Ubuntu" "Noto Serif" "Noto Serif CJK JP"];
 				sansSerif = [ "Ubuntu" "Noto Sans" "Noto Sans CJK JP" ];
@@ -214,6 +220,7 @@
 	};
 
 	programs = {
+		nix-ld.enable = true;
 		steam = {
 			enable = true;
 			remotePlay.openFirewall = true;      # Open ports in the firewall for Steam Remote Play
