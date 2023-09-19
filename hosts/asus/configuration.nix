@@ -86,6 +86,14 @@
 		};
 	};
 
+ 	# Disable GNOME's default applications
+	environment.gnome.excludePackages = with pkgs.gnome; [
+		cheese      # Photo booth
+		epiphany    # Web browser
+		geary       # Email client
+		gnome-maps  
+	];
+
 	# Configure keymap in X11
 	services.xserver = {
 		exportConfiguration = true; # link /usr/share/X11/ properly
