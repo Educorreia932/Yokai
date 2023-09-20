@@ -22,15 +22,13 @@ These are some of the applications that I use in my current setup.
 ## Rebuild
 
 ```sh
-sudo nixos-rebuild switch --flake .#asus
+sudo nixos-rebuild switch --flake .#asus --impure
 ```
 
-## Upgrade
+## Update
 
 ```sh
-nix flake upgrade
-
-sudo nixos-rebuild switch --flake .#asus --upgrade
+nix flake update
 ```
 
 ## ASUS CTL
@@ -46,3 +44,10 @@ systemctl start asusd
 ```sh
 asusctl
 ```
+
+## TODO
+
+- Switch home-manager faster
+  - https://github.com/nmasur/dotfiles/blob/90092c48ec682ec09ff0c9aaa491d6509be7cc2a/flake.nix#L245C22-L245C22
+- Replace "eduardo" with `config.user` in `/modules`
+- > error: cannot look up '<nixpkgs>' in pure evaluation mode (use '--impure' to override)

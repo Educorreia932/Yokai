@@ -9,6 +9,6 @@ window:
     opacity: 0.95
 
 font:
-    size: 9.0
+    size: 13.0
 
 shell: zsh

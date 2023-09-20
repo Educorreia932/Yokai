@@ -1,1 +1,0 @@
-sudo -E nixos-rebuild switch --flake .#asus

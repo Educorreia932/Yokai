@@ -2,57 +2,43 @@
 
 with lib;
 
-let
-    user = "eduardo";
+{
+    home.stateVersion = "22.11"; 
 
-    commonConfiguration = import ../../common/home-manager.nix { config = config; pkgs = pkgs; lib = lib; };
+	# Let Home Manager install and manage itself.
+	programs.home-manager.enable = true;
 
-    hostConfiguration = {
-        home.username = "${user}";
-        home.homeDirectory = "/home/${user}";
+    home.username = "eduardo";
+    home.homeDirectory = "/home/eduardo";
 
-        home.file =  {
-            i3 = {
-                source = ./config/i3;
-                target = ".config/i3";
-                recursive = true;
-            };
-	    };
+    home.packages = with pkgs; [
+        google-chrome
+        flameshot
+        discord
+        gitkraken
+        obsidian
+        jetbrains.webstorm
+        jetbrains.idea-ultimate
+    ];
 
-        home.packages = with pkgs; [
-            google-chrome
-            flameshot
-            discord
-            gitkraken
-            obsidian
-            jetbrains.webstorm
-            jetbrains.idea-ultimate
-        ];
-
-        services = {
-            polybar = import ./services/polybar { pkgs = pkgs; };
+    programs = {
+        rofi = {
+            enable = true;
         };
-
-        programs = {
-            rofi = {
-			    enable = true;
-		    };
-            vscode = {
-                enable = true;
-             };
-        };
-
-        dconf.settings = {
-            "org/gnome/desktop/peripherals/touchpad" = {
-                "tap-to-click" = true;
-                "two-finger-scrolling-enabled" = true;
-            };
-            "org/gnome/desktop/interface" = {
-                "text-scaling-factor" = 1.00;
-            };
+        vscode = {
+            enable = true;
         };
     };
 
-    finalConfiguration = recursiveUpdate commonConfiguration hostConfiguration;
-in
-    finalConfiguration
+    dconf.settings = {
+        "org/gnome/desktop/peripherals/touchpad" = {
+            "tap-to-click" = true;
+            "two-finger-scrolling-enabled" = true;
+        };
+        "org/gnome/desktop/interface" = {
+            "text-scaling-factor" = 1.00;
+        };
+    };
+}
+    
+
