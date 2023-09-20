@@ -58,7 +58,7 @@
 	# Enable Flatpak
 	services.flatpak.enable = true;
 
-	# Enable i3 and GNOME Desktop Environment
+	# Enable GNOME Desktop Environment
 	services.xserver = {
 		desktopManager = {
 			gnome.enable = true;
@@ -67,16 +67,6 @@
 	
 		displayManager = {
 			gdm.enable = true;
-		};
-
-		windowManager.i3 = {
-			package = pkgs.i3-gaps;
-			enable = true;
-			extraPackages = with pkgs; [
-				dmenu 
-				i3status 
-				i3lock 
-			];
 		};
 	};
 
