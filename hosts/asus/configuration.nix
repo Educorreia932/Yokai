@@ -58,27 +58,6 @@
 	# Enable Flatpak
 	services.flatpak.enable = true;
 
-	# Enable GNOME Desktop Environment
-	services.xserver = {
-		desktopManager = {
-			gnome.enable = true;
-			xterm.enable = false;
-		};
-	
-		displayManager = {
-			gdm.enable = true;
-		};
-	};
-
- 	# Disable GNOME's default applications
-	environment.gnome.excludePackages = with pkgs.gnome; [
-		cheese      # Photo booth
-		epiphany    # Web browser
-		geary       # Email client
-		simple-scan # Document scanner
-		gnome-maps  
-	];
-
 	# Configure keymap in X11
 	services.xserver = {
 		exportConfiguration = true; # link /usr/share/X11/ properly
@@ -123,10 +102,6 @@
 	# Enable automatic login for the user.
 	services.xserver.displayManager.autoLogin.enable = true;
 	services.xserver.displayManager.autoLogin.user = "eduardo";
-
-	# Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-	systemd.services."getty@tty1".enable = false;
-	systemd.services."autovt@tty1".enable = false;
 
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
