@@ -81,12 +81,6 @@
 		alsa.enable = true;
 		alsa.support32Bit = true;
 		pulse.enable = true;
-		# If you want to use JACK applications, uncomment this
-		#jack.enable = true;
-
-		# use the example session manager (no others are packaged yet so this is enabled by default,
-		# no need to redefine it in your config for now)
-		#media-session.enable = true;
 	};
 
 	# Define a user account.
@@ -116,7 +110,7 @@
 		};
 	};
 
-	# List packages installed in system profile. To search, run:
+	# List packages installed in system profile
 	environment.systemPackages = with pkgs; [
 		nodejs
 		haskellPackages.cabal-install
@@ -132,30 +126,8 @@
 		nur.repos.willpower3309.ani-cli
 	];
 
-	boot.initrd.kernelModules = [ "nvidia" ];
-	boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];	
-
 	hardware.opengl.enable = true;
 	hardware.opengl.driSupport32Bit = true;
-
-  	services.xserver.videoDrivers = [ "nvidia" ];
-
-	hardware.nvidia = {
-		modesetting.enable = true;
-		powerManagement.enable = true;
-		open = true;
-		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.stable;
-		prime = {
-			offload = {
-				enable = true;
-				enableOffloadCmd = true;
-			};
-
-			intelBusId = "PCI:0:2:0";
-			nvidiaBusId = "PCI:1:0:0";
-		};
-	};
 
 	programs = {
 		nix-ld.enable = true;
