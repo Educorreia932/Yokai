@@ -5,6 +5,7 @@
         ./graphical/gnome
         ./graphical/i3
         ./graphical/polybar
+        ./hardware/audio
         ./hardware/nvidia
         ./services/asusctl
         ./shell/git
