@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
     fonts = {
 		enableDefaultPackages = false;
 		fontDir.enable = true;
- 
-		packages = with pkgs; [ 
+
+		packages = with pkgs; [
 			material-design-icons
 			meslo-lg
 			noto-fonts

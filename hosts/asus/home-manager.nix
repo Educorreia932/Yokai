@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 with lib;
 
@@ -19,6 +19,7 @@ with lib;
         jetbrains.webstorm
         jetbrains.idea-ultimate
         neofetch
+        nil
         obsidian
         spotify
     ];

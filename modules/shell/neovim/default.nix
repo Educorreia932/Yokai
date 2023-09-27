@@ -1,7 +1,3 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
 {
 	home-manager.users.eduardo = {
 		home.file =  {
@@ -13,7 +9,7 @@ with lib;
 		};
 
 		programs.neovim = {
-			enable = true;    
+			enable = true;
 			defaultEditor = true;
 		};
 	};
