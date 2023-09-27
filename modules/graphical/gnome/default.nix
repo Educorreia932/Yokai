@@ -24,4 +24,16 @@
     # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
 	systemd.services."getty@tty1".enable = false;
 	systemd.services."autovt@tty1".enable = false;
+	
+	home-manager.users.eduardo = {
+		dconf.settings = {
+			"org/gnome/desktop/peripherals/touchpad" = {
+				"tap-to-click" = true;
+				"two-finger-scrolling-enabled" = true;
+			};
+			"org/gnome/desktop/interface" = {
+				"text-scaling-factor" = 1.00;
+			};
+		};
+	};
 }

@@ -77,9 +77,6 @@
 		isNormalUser = true;
 		description = "Eduardo Correia";
 		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [
-			spotify
-		];
 	};
 
 	# Enable automatic login for the user.
@@ -101,6 +98,7 @@
 
 	# List packages installed in system profile
 	environment.systemPackages = with pkgs; [
+		cachix
 		nodejs
 		haskellPackages.cabal-install
 		vscode

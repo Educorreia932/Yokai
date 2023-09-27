@@ -16,9 +16,11 @@ with lib;
         flameshot
         discord
         gitkraken
-        obsidian
         jetbrains.webstorm
         jetbrains.idea-ultimate
+        neofetch
+        obsidian
+        spotify
     ];
 
     programs = {
@@ -28,17 +30,10 @@ with lib;
         vscode = {
             enable = true;
         };
-    };
-
-    dconf.settings = {
-        "org/gnome/desktop/peripherals/touchpad" = {
-            "tap-to-click" = true;
-            "two-finger-scrolling-enabled" = true;
-        };
-        "org/gnome/desktop/interface" = {
-            "text-scaling-factor" = 1.00;
+        direnv = {
+            enable = true;
+            enableZshIntegration = true;
+            nix-direnv.enable = true;
         };
     };
 }
-    
-
