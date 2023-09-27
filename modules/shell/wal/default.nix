@@ -1,7 +1,7 @@
 {
-	home-manager.users.eduardo = {
-		programs.pywal = {
-			enable = true;    
-		};
-	};
+  home-manager.users.eduardo = {
+    programs.pywal = {
+      enable = true;
+    };
+  };
 }
