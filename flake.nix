@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, home-manager, nixpkgs, nur, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       nixosConfigurations = {

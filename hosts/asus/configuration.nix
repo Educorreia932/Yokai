@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, nur, ... }:
 
 {
   imports =
@@ -86,18 +86,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Make NUR packages accessible
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import
-      (builtins.fetchTarball {
-        url = "https://github.com/nix-community/NUR/archive/68008bb1e456742f6f4cba73ecd94b0c197e5a61.tar.gz";
-        sha256 = "1pspq047p75m9szj31z74z3ac97g7n26c6pqyx7p7jvzl6c4ykc6";
-      })
-      {
-        inherit pkgs;
-      };
-  };
-
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     cachix
@@ -110,9 +98,9 @@
       ipykernel
       i3ipc
     ]))
-    nur.repos.xeals.samrewritten
-    nur.repos.mikilio.xwaylandvideobridge
-    nur.repos.willpower3309.ani-cli
+    config.nur.repos.xeals.samrewritten
+    config.nur.repos.mikilio.xwaylandvideobridge
+    config.nur.repos.willpower3309.ani-cli
   ];
 
   hardware.opengl.enable = true;
