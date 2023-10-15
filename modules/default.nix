@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./applications/alacritty
+    ./applications/virtualbox
     ./graphical/fonts
     ./graphical/gnome
     ./graphical/i3
