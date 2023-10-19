@@ -34,6 +34,9 @@
       "org/gnome/desktop/interface" = {
         "text-scaling-factor" = 1.00;
       };
+      "org.gnome.gnome-screenshot" = {
+        "auto-save-directory" = "file:///home/eduardo/Pictures/Screenshots";
+      };
     };
   };
 }
