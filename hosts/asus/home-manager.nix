@@ -15,6 +15,7 @@ with lib;
     google-chrome
     flameshot
     discord
+    gimp
     gitkraken
     jetbrains.webstorm
     jetbrains.idea-ultimate
