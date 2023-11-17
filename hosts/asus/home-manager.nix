@@ -20,6 +20,7 @@ with lib;
     jetbrains.webstorm
     jetbrains.idea-ultimate
     neofetch
+    nixpkgs-fmt
     nil
     obsidian
     spotify
