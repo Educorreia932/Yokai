@@ -21,10 +21,15 @@
     gnome-maps
   ];
 
+  # Systray Icons
+  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  # dconf settings
   home-manager.users.eduardo = {
     dconf.settings = {
       "org/gnome/desktop/peripherals/touchpad" = {
@@ -36,6 +41,9 @@
       };
       "org.gnome.gnome-screenshot" = {
         "auto-save-directory" = "file:///home/eduardo/Pictures/Screenshots";
+      };
+      "org/gnome/shell" = {
+        "enabled-extensions" = [ "appindicatorsupport@rgcjonas.gmail.com" ];
       };
     };
   };
