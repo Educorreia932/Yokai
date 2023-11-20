@@ -27,7 +27,10 @@
   nix.settings.auto-optimise-store = true;
 
   # Enable networking
+  services.resolved.enable = true;
+
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
 
   # Set your time zone.
   time.timeZone = "Europe/Lisbon";
