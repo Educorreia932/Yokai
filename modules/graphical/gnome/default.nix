@@ -18,7 +18,7 @@
     epiphany # Web browser
     geary # Email client
     simple-scan # Document scanner
-    gnome-maps
+    gnome-maps # Maps
   ];
 
   # Systray Icons

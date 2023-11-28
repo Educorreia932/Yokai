@@ -1,4 +1,4 @@
-{ config, pkgs, nur, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -31,6 +31,8 @@
 
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "systemd-resolved";
+  systemd.services.systemd-udevd.restartIfChanged = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Lisbon";
@@ -92,6 +94,7 @@
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     cachix
+    nix-output-monitor
     nodejs
     haskellPackages.cabal-install
     vscode
@@ -101,7 +104,6 @@
       ipykernel
       i3ipc
     ]))
-    config.nur.repos.xeals.samrewritten
     config.nur.repos.mikilio.xwaylandvideobridge
     config.nur.repos.willpower3309.ani-cli
   ];
@@ -111,11 +113,6 @@
 
   programs = {
     nix-ld.enable = true;
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    };
   };
 
   # This value determines the NixOS release from which the default
