@@ -18,7 +18,8 @@
 
     fontconfig = {
       antialias = true;
-      localConf = lib.fileContents ./fontconfig.xml;
+      # Fix for overriding emoji font for characters
+      localConf = lib.fileContents ./fontconfig.xml; 
       defaultFonts = {
         serif = [ "Ubuntu" "Noto Serif" "Noto Serif CJK JP" ];
         sansSerif = [ "Ubuntu" "Noto Sans" "Noto Sans CJK JP" ];

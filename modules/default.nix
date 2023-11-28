@@ -1,18 +1,17 @@
 { ... }: {
   imports = [
-    ./applications/alacritty
-    ./applications/steam
-    ./applications/virtualbox
+    ./applications/alacritty.nix
+    ./applications/steam.nix
+    ./applications/obsidian.nix
+    ./applications/virtualbox.nix
     ./graphical/fonts
-    ./graphical/gnome
-    ./graphical/i3
-    ./graphical/polybar
-    ./hardware/audio
-    ./hardware/nvidia
-    ./services/asusctl
-    ./shell/git
+    ./graphical/gnome.nix
+    ./hardware/audio.nix
+    ./hardware/nvidia.nix
+    ./services/asusctl.nix
+    ./shell/git.nix
     ./shell/neovim
-    ./shell/wal
+    ./shell/wal.nix
     ./shell/zsh
   ];
 }
