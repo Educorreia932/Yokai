@@ -31,20 +31,6 @@ sudo nixos-rebuild switch --flake .#asus --impure
 nix flake update
 ```
 
-## ASUS CTL
-
-### Start service
-
-```sh
-systemctl start asusd
-```
-
-### Change settings
-
-```sh
-asusctl
-```
-
 ## TODO
 
 - Switch home-manager faster
