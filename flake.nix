@@ -3,7 +3,7 @@
 
   inputs = {
     # System packages
-    nixpkgs = { url = "github:nixos/nixpkgs/release-23.11"; };
+    nixpkgs = { url = "github:nixos/nixpkgs/nixos-23.11"; };
 
     # Community packages
     nur = { url = "github:nix-community/NUR"; };

@@ -89,6 +89,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     cachix
