@@ -16,7 +16,7 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/463668a9-1d6d-4914-92ec-b89930e89efd";
+      device = "/dev/disk/by-uuid/61e0199f-38eb-47d5-86b8-23de30de45d5";
       fsType = "ext4";
     };
 
@@ -39,4 +39,3 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
-
