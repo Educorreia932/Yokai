@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./applications/alacritty.nix
+    ./applications/docker.nix
     ./applications/steam.nix
     ./applications/obsidian.nix
     ./applications/virtualbox.nix
