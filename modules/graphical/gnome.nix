@@ -22,7 +22,11 @@
   ];
 
   # Systray Icons
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  environment.systemPackages = with pkgs; [ 
+    gnomeExtensions.appindicator 
+    gnomeExtensions.blur-my-shell
+  ];
+
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -43,7 +47,10 @@
         "auto-save-directory" = "file:///home/eduardo/Pictures/Screenshots";
       };
       "org/gnome/shell" = {
-        "enabled-extensions" = [ "appindicatorsupport@rgcjonas.gmail.com" ];
+        "enabled-extensions" = [ 
+          "appindicatorsupport@rgcjonas.gmail.com" 
+          "blur-my-shell@aunetx"
+        ];
       };
     };
   };
