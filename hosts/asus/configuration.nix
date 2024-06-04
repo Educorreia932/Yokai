@@ -74,9 +74,11 @@
   # Configure keymap in X11
   services.xserver = {
     exportConfiguration = true; # link /usr/share/X11/ properly
-    layout = "pt,jp";
-    xkbVariant = "";
-    xkbOptions = "grp:win_space_toggle";
+    xkb = {
+      variant = "";
+      options = "grp:win_space_toggle";
+      layout = "pt,jp";
+    };
   };
 
   # Configure console keymap
@@ -93,8 +95,8 @@
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "eduardo";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "eduardo";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

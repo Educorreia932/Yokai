@@ -11,6 +11,7 @@ inputs.nixpkgs.lib.nixosSystem {
         useGlobalPkgs = true;
         extraSpecialArgs = { inherit inputs; };
         users.eduardo = import ./home-manager.nix;
+        backupFileExtension = "backup";
       };
     }
     ./configuration.nix
