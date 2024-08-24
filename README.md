@@ -6,12 +6,17 @@ My current Linux dotfiles and scripts.
 
 These are some of the applications that I use in my current setup.
 
-**Distribution:** NixOS 
-**Desktop Environment:** Gnome 4
+**Distribution:** NixOS 24.05
+**Desktop Environment:** Gnome 46.2 (Wayland)
 **Shell:** zsh  
 **Terminal:** Alacritty  
 
-# 📷 Screenshot
+# 🗃️ Contents
+ 
+- [home](home/) - Home Manager configuration
+- [hosts](hosts/) - Host-specific configuration
+
+# 📷 Preview
 
 ![Preview](preview.png)
 

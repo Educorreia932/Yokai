@@ -1,7 +1,5 @@
-{ config, ... }:
-
-{
-  boot.initrd.kernelModules = [ "nvidia" ];
+{ config, ... }: {
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_uvm" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
   # Load Nvidia driver for Xorg and Wayland

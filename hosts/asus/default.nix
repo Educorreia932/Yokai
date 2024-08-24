@@ -1,21 +1,15 @@
-{ inputs, ... }:
-
-inputs.nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  modules = [
+{ inputs, ... }: {
+  imports = [
     inputs.nur.nixosModules.nur
     inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager = {
-        useUserPackages = true;
-        useGlobalPkgs = true;
-        extraSpecialArgs = { inherit inputs; };
-        users.eduardo = import ./home-manager.nix;
-        backupFileExtension = "backup";
-      };
-    }
     ./configuration.nix
     ./hardware-configuration.nix
-    ../../modules
+    ../../home
+    ./graphical/fonts
+    ./graphical/gnome
+    ./hardware/audio
+    ./hardware/nvidia
+    ./programs/docker
+    ./programs/steam
   ];
 }

@@ -20,14 +20,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   # Register AppImage files as a binary type
-  boot.binfmt.registrations.appimage = {
-    wrapInterpreterInShell = false;
-    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-    recognitionType = "magic";
-    offset = 0;
-    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
-    magicOrExtension = ''\x7fELF....AI\x02'';
-  };
+  programs.appimage.binfmt = true;
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -108,28 +101,53 @@
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     cachix
+    killall
     nix-output-monitor
-    nodejs
     haskellPackages.cabal-install
     vscode
     (python3.withPackages (ps: with ps; [
-      jupyter
       ipython
       ipykernel
       i3ipc
+      jupyter
+      matplotlib
+      numpy
+      pandas
+      cvxpy
+      opencv4
     ]))
+    appimage-run
     config.nur.repos.mikilio.xwaylandvideobridge
-    config.nur.repos.willpower3309.ani-cli
   ];
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
-  programs = {
-    nix-ld.enable = true;
-  };
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # List by default
+      zlib
+      zstd
+      stdenv.cc.cc
+      curl
+      openssl
+      attr
+      libssh
+      bzip2
+      libxml2
+      acl
+      libsodium
+      util-linux
+      xz
+      systemd
 
-  services.asusctl.enable = true;
+      # Required
+      glib
+      gtk2
+    ];
+  };  
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

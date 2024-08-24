@@ -1,5 +1,5 @@
 {
-  description = "Educorreia932's Dotfiles";
+  description = "My personal NixOS configuration";
 
   inputs = {
     # System packages
@@ -16,10 +16,16 @@
   };
 
   outputs = { nixpkgs, ... }@inputs:
+    let
+      user = "eduardo";
+      inherit (nixpkgs) lib;
+    in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-      nixosConfigurations = {
-        asus = import ./hosts/asus { inherit inputs; };
+      nixosConfigurations.asus = lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./hosts/asus ];
+        specialArgs = { inherit inputs user; };
       };
     };
 }
