@@ -6,10 +6,10 @@ My current Linux dotfiles and scripts.
 
 These are some of the applications that I use in my current setup.
 
-**Distribution:** NixOS 24.05
-**Desktop Environment:** Gnome 46.2 (Wayland)
-**Shell:** zsh  
-**Terminal:** Alacritty  
+**Distribution:** NixOS 24.05  
+**Desktop Environment:** Gnome 46.2 (Wayland)  
+**Shell:** zsh    
+**Terminal:** Alacritty    
 
 # 🗃️ Contents
  
