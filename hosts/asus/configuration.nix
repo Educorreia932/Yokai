@@ -12,12 +12,22 @@
     settings.trusted-users = [ "root" "eduardo" ];
   };
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Configure booting
+  boot = {
+    loader = {
+      # Use the systemd-boot EFI boot loader
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-  # Enable NTFS filesystem
-  boot.supportedFilesystems = [ "ntfs" ];
+    # Enable NTFS filesystem
+    supportedFilesystems = [ "ntfs" ];
+
+    # Silent boot
+    kernelParams = [ "quiet" ];
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+  };
 
   # Register AppImage files as a binary type
   programs.appimage.binfmt = true;
@@ -146,7 +156,7 @@
       glib
       gtk2
     ];
-  };  
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
