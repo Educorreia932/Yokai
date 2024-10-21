@@ -67,8 +67,6 @@ cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
 cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
 
-colorscheme oblivion 
-
 " Automatically change working directory when opening NeoVim
 set autochdir
 
