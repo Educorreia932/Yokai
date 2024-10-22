@@ -10,6 +10,7 @@
     ./hardware/audio
     ./hardware/nvidia
     ./programs/docker
+    ./programs/paperless
     ./programs/steam
   ];
 }
