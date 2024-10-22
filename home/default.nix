@@ -9,6 +9,7 @@
     users.${user} = {
       imports = [
         ./programs/alacritty.nix
+        ./programs/firefox.nix
         ./programs/lutris.nix
         ./programs/node.nix
         ./shell/git.nix
@@ -34,12 +35,10 @@
         # Installed packages
         packages = with pkgs; [
           calibre
-          google-chrome
           discord
           gimp
           gitkraken
           inkscape
-          jetbrains.idea-ultimate
           jetbrains.webstorm
           neofetch
           nixpkgs-fmt
