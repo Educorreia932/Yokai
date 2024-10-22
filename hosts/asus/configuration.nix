@@ -22,11 +22,6 @@
 
     # Enable NTFS filesystem
     supportedFilesystems = [ "ntfs" ];
-
-    # Silent boot
-    kernelParams = [ "quiet" ];
-    consoleLogLevel = 0;
-    initrd.verbose = false;
   };
 
   # Register AppImage files as a binary type
