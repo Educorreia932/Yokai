@@ -13,18 +13,20 @@
   };
 
   # Disable GNOME's default applications
-  environment.gnome.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs; with pkgs.gnome; [
     cheese # Photo booth
     epiphany # Web browser
     geary # Email client
     simple-scan # Document scanner
     gnome-maps # Maps
+    gnome-tour # Tour
   ];
 
   # Systray Icons
   environment.systemPackages = with pkgs; [ 
     gnomeExtensions.appindicator 
     gnomeExtensions.blur-my-shell
+    gnome3.gnome-tweaks
   ];
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
