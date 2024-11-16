@@ -20,6 +20,7 @@
     simple-scan # Document scanner
     gnome-maps # Maps
     gnome-tour # Tour
+    gnome-console # Console
   ];
 
   # Systray Icons

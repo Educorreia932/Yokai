@@ -8,10 +8,10 @@
     backupFileExtension = "backup";
     users.${user} = {
       imports = [
-        ./programs/alacritty.nix
         ./programs/firefox.nix
         ./programs/lutris.nix
         ./programs/node.nix
+        ./programs/ptyxis
         ./shell/git.nix
         ./shell/neovim
         ./shell/zsh
