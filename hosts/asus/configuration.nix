@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -110,6 +110,8 @@
     nix-output-monitor
     haskellPackages.cabal-install
     vscode
+    xorg.xbacklight
+    brightnessctl
     (python3.withPackages (ps: with ps; [
       ipython
       ipykernel
@@ -122,11 +124,13 @@
       opencv4
     ]))
     appimage-run
-    config.nur.repos.mikilio.xwaylandvideobridge
+    # config.nur.repos.mikilio.xwaylandvideobridge
   ];
 
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   programs.nix-ld = {
     enable = true;
@@ -153,11 +157,20 @@
     ];
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  # Asus services
+  services = {
+    asusd.enable = true;
+    asusd.enableUserService = true;
+
+    udev.extraHwdb = ''
+      evdev:name:*:dmi:bvn*:bvr*:bd*:svnASUS*:pn*:*
+       KEYBOARD_KEY_ff31007c=f20    # fixes mic mute button
+    '';
+  };
+
+  services.supergfxd.enable = true;
+
+  services.xserver.dpi = 188;
+
+  system.stateVersion = "24.05";
 }

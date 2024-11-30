@@ -9,8 +9,9 @@
     ./graphical/gnome
     ./hardware/audio
     ./hardware/nvidia
-    ./programs/docker
-    ./programs/paperless
+    # ./programs/docker
+    # ./programs/paperless
     ./programs/steam
+    ./services/immich
   ];
 }

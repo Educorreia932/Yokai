@@ -34,22 +34,22 @@
         homeDirectory = "/home/${user}";
         # Installed packages
         packages = with pkgs; [
-          calibre
+          _1password-gui
+          # calibre
           discord
-          gimp
+          # gimp
           gitkraken
-          inkscape
-          jetbrains.webstorm
+          # inkscape
+          # jetbrains.webstorm
           neofetch
           nixpkgs-fmt
           nil
           obsidian
-          qbittorrent
           spotify
-          syncthing
-          yarn
-          webcord
-          zoom-us
+          # syncthing
+          # yarn
+          # webcord
+          # zoom-us
         ];
       };
       # Let Home Manager install and manage itself.
