@@ -33,3 +33,9 @@ sudo nixos-rebuild switch --flake .#asus --impure
 ```sh
 nix flake update
 ```
+
+## Hosts 
+
+| Name       | Description |
+|------------|-------------|
+| `kappa`    | Asus        |
