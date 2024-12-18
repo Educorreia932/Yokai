@@ -1,13 +1,13 @@
 {
   pkgs,
   user,
-  inputs,
   ...
 }:
 
 {
   imports = [
     ../../modules/direnv.nix
+    ../../modules/home-manager.nix
     ../../modules/git.nix
     ../../modules/nix.nix
     ../../modules/zsh
@@ -29,26 +29,17 @@
     home = "/home/${user}";
   };
 
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs user; };
-    backupFileExtension = "backup";
-    users.${user} = {
-      # Home configuration
-      home = {
-        stateVersion = "24.11";
-        username = "${user}";
-        homeDirectory = "/home/${user}";
-        # Installed packages
-        packages = with pkgs; [
-          nil
-          wget
-        ];
-      };
-
-      # Let Home Manager install and manage itself.
-      programs.home-manager.enable = true;
+  home-manager.users.${user} = {
+    programs.git = {
+      userName  = "Eduardo Correia";
+      userEmail = "skelozard1@gmail.com";
+    };
+    home = {
+      # Installed packages
+      packages = with pkgs; [
+        nil
+        wget
+      ];
     };
   };
 

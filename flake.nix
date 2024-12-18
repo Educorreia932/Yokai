@@ -23,6 +23,12 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Flake utilities
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,13 +36,15 @@
       nixpkgs,
       nixos-wsl,
       home-manager,
+      flake-utils,
       ...
     }@inputs:
     let
       inherit (nixpkgs) lib;
+      forAllSystems = nixpkgs.lib.genAttrs flake-utils.allSystems;
     in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
 
       # Bakeneko
       nixosConfigurations.bakeneko = lib.nixosSystem {
