@@ -2,30 +2,23 @@
 
 My current Linux dotfiles and scripts.
 
-# 💻 System Information
-
-These are some of the applications that I use in my current setup.
-
-**Distribution:** NixOS 24.11  
-**Desktop Environment:** Gnome 47.1 (Wayland)  
-**Shell:** zsh    
-**Terminal:** Ptyxis
-
 # 🗃️ Contents
  
-- [home](home/) - Home Manager configuration
 - [hosts](hosts/) - Host-specific configuration
-
-# 📷 Preview
-
-![Preview](preview.png)
+- [modules](modules/) - Individual application configuration
 
 # Useful Commands
 
-## Rebuild
+## Rebuild (NixOS)
 
 ```sh
-sudo nixos-rebuild switch --flake .#asus --impure
+sudo nixos-rebuild switch --flake .#<hostname>
+```
+
+## Rebuild (darwin)
+
+```sh
+darwin-rebuild switch --flake .#<hostname>
 ```
 
 ## Update
@@ -34,8 +27,16 @@ sudo nixos-rebuild switch --flake .#asus --impure
 nix flake update
 ```
 
+## Garbage Collection
+
+```sh
+nix-collect-garbage -d
+```
+
 ## Hosts 
 
-| Name       | Description |
-|------------|-------------|
+| Name       | Description           | System                             |
+|------------|-----------------------|------------------------------------|
+| `bakeneko` | Personal laptop (new) | ASUS ROG Zephyrus G16 (2024) GU605 |
 | `kappa`    | Asus        |
+| `kappa`    | Personal laptop (old) | ASUS ROG Zephyrus                  |

@@ -1,16 +1,21 @@
-{ config, pkgs, lib, ... }:
+{ inputs, pkgs, user, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
-  nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
-    settings.trusted-users = [ "root" "eduardo" ];
-  };
+  imports = [
+    inputs.nur.nixosModules.nur
+    inputs.home-manager.nixosModules.home-manager
+    ./hardware-configuration.nix
+    ../../modules/audio.nix
+    ../../modules/direnv.nix
+    ../../modules/fonts
+    ../../modules/git.nix
+    ../../modules/gnome.nix
+    .../../modules/immich.nix
+    ../../modules/nix.nix
+    ../../modules/nvidia.nix
+    ../../modules/steam.nix
+    ../../modules/zsh
+  ];
 
   # Configure booting
   boot = {
@@ -28,9 +33,6 @@
   programs.appimage.binfmt = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-
-  # Save space by hardlinking identical files in the Nix store
-  nix.settings.auto-optimise-store = true;
 
   # Enable networking
   services.resolved.enable = true;
@@ -86,22 +88,23 @@
   services.printing.enable = true;
 
   # Define a user account.
-  users.users.eduardo = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "Eduardo Correia";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "eduardo";
+  services.displayManager.autoLogin.user = user;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
@@ -112,19 +115,20 @@
     vscode
     xorg.xbacklight
     brightnessctl
-    (python3.withPackages (ps: with ps; [
-      ipython
-      ipykernel
-      i3ipc
-      jupyter
-      matplotlib
-      numpy
-      pandas
-      cvxpy
-      opencv4
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        ipython
+        ipykernel
+        i3ipc
+        jupyter
+        matplotlib
+        numpy
+        pandas
+        cvxpy
+        opencv4
+      ]
+    ))
     appimage-run
-    # config.nur.repos.mikilio.xwaylandvideobridge
   ];
 
   hardware.graphics = {
@@ -164,7 +168,7 @@
 
     udev.extraHwdb = ''
       evdev:name:*:dmi:bvn*:bvr*:bd*:svnASUS*:pn*:*
-       KEYBOARD_KEY_ff31007c=f20    # fixes mic mute button
+      KEYBOARD_KEY_ff31007c=f20    # Fixes mic mute button
     '';
   };
 
