@@ -24,6 +24,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix Darwin
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Flake utilities
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -34,8 +40,9 @@
   outputs =
     {
       nixpkgs,
-      nixos-wsl,
       home-manager,
+      nixos-wsl,
+      nix-darwin,
       flake-utils,
       ...
     }@inputs:
@@ -67,6 +74,18 @@
         specialArgs = {
           inherit inputs;
           user = "eduardo";
+        };
+      };
+
+      # Jorogumo
+      darwinConfigurations.jorogumo = nix-darwin.lib.darwinSystem {
+        modules = [ 
+          home-manager.darwinModules.home-manager
+          ./hosts/jorogumo/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs;
+          user = "eduardo.correia";
         };
       };
     };

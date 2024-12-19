@@ -31,7 +31,7 @@
 
   home-manager.users.${user} = {
     programs.git = {
-      userName  = "Eduardo Correia";
+      userName = "Eduardo Correia";
       userEmail = "skelozard1@gmail.com";
     };
     home = {
