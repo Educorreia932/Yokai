@@ -23,10 +23,24 @@
     };
     home = {
       # Installed packages
-      packages = with pkgs; [
+      packages =
+        with pkgs;
+        let
+          gdk = (
+            google-cloud-sdk.withExtraComponents (
+              with pkgs.google-cloud-sdk.components;
+              [
+                gke-gcloud-auth-plugin
+              ]
+            )
+          );
+        in
+        [
         _1password-cli
         crowdin-cli
+          gdk
         nil
+          nodejs_18
       ];
       homeDirectory = "/Users/${user}";
     };
