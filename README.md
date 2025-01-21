@@ -35,8 +35,9 @@ nix-collect-garbage -d
 
 ## Hosts 
 
-| Name       | Description           | System                             |
-|------------|-----------------------|------------------------------------|
-| `bakeneko` | Personal laptop (new) | ASUS ROG Zephyrus G16 (2024) GU605 |
-| `jorogumo` | Work laptop           | MacBook Pro M3                     |
-| `kappa`    | Personal laptop (old) | ASUS ROG Zephyrus                  |
+| Name       | Description            | System                             |
+|------------|------------------------|------------------------------------|
+| `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 |
+| `jorogumo` | Work laptop            | MacBook Pro M3                     |
+| `kappa`    | Personal laptop (old)  | ASUS ROG Zephyrus                  |
+| `tengu`    | Virtual private server | Hetzner Cloud                      |

@@ -88,5 +88,15 @@
           user = "eduardo.correia";
         };
       };
+
+      # Tengu
+      nixosConfigurations.tengu = lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./hosts/tengu/configuration.nix ];
+        specialArgs = {
+          inherit inputs;
+          user = "nixos";
+        };
+      };
     };
 }
