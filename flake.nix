@@ -79,7 +79,7 @@
 
       # Jorogumo
       darwinConfigurations.jorogumo = nix-darwin.lib.darwinSystem {
-        modules = [ 
+        modules = [
           home-manager.darwinModules.home-manager
           ./hosts/jorogumo/configuration.nix
         ];
@@ -91,11 +91,14 @@
 
       # Tengu
       nixosConfigurations.tengu = lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/tengu/configuration.nix ];
+        system = "aarch64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./hosts/tengu/configuration.nix
+        ];
         specialArgs = {
           inherit inputs;
-          user = "nixos";
+          user = "eduardo";
         };
       };
     };
