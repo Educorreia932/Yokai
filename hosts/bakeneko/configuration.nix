@@ -37,7 +37,9 @@
     home = {
       # Installed packages
       packages = with pkgs; [
+        ffmpeg
         nil
+        yt-dlp
         wget
       ];
     };
