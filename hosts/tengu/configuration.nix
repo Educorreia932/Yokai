@@ -8,7 +8,6 @@
     ./paperless.nix
     ../../modules/git.nix
     ../../modules/home-manager.nix
-    ../../modules/immich.nix
     ../../modules/nix.nix
     ../../modules/zsh
   ];
