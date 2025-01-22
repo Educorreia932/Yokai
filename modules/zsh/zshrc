@@ -1,7 +1,2 @@
 # Remove duplicate commands from history
 setopt hist_ignore_all_dups
-
-export XDG_DATA_HOME="$HOME/.local/share"
-
-export PATH=~/.npm-packages/bin:$PATH
-export NODE_PATH=~/.npm-packages/lib/node_modules
