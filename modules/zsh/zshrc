@@ -1,2 +1,9 @@
 # Remove duplicate commands from history
 setopt hist_ignore_all_dups
+
+function git-clear() {
+    # Update remote references
+    git fetch --prune
+    # Remove local branches that no longer exist on remote
+    git branch -vv | grep 'gone]' | awk '{print $1}' | xargs git branch -D
+}
