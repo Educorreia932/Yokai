@@ -26,13 +26,19 @@
 
     # Nix Darwin
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Flake utilities
     flake-utils = {
       url = "github:numtide/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Secret management
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -44,6 +50,7 @@
       nixos-wsl,
       nix-darwin,
       flake-utils,
+      agenix,
       ...
     }@inputs:
     let
@@ -79,7 +86,8 @@
 
       # Jorogumo
       darwinConfigurations.jorogumo = nix-darwin.lib.darwinSystem {
-        modules = [
+        modules = [ 
+          agenix.nixosModules.default
           home-manager.darwinModules.home-manager
           ./hosts/jorogumo/configuration.nix
         ];
