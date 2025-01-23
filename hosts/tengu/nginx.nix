@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   services.nginx = {
     enable = true;
@@ -6,12 +8,12 @@
       "immich" = {
         listen = [
           {
-            port = 2283;
+            port = 8081;
             addr = "0.0.0.0";
           }
         ];
         locations."/" = {
-          proxyPass = "http://[::1]:2283";
+          proxyPass = "http://[::1]:${toString config.services.immich.port}";
           proxyWebsockets = true;
           recommendedProxySettings = true;
           extraConfig = ''
@@ -26,14 +28,12 @@
       "paperless" = {
         listen = [
           {
-            port = 28981;
+            port = 8082;
             addr = "0.0.0.0";
           }
         ];
         locations."/" = {
-          proxyPass = "http://[::1]:28981";
-          proxyWebsockets = true;
-          recommendedProxySettings = true;
+          proxyPass = "http://127.0.0.1:${toString config.services.paperless.port}";
           extraConfig = ''
             client_max_body_size 50000M;
             proxy_read_timeout   600s;
