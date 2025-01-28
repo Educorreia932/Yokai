@@ -30,14 +30,14 @@ nix flake update
 ## Garbage Collection
 
 ```sh
-nix-collect-garbage -d
+sudo nix-collect-garbage -d
 ```
 
 ## Hosts 
 
-| Name       | Description            | System                             |
-|------------|------------------------|------------------------------------|
-| `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 |
-| `jorogumo` | Work laptop            | MacBook Pro M3                     |
-| `kappa`    | Personal laptop (old)  | ASUS ROG Zephyrus                  |
-| `tengu`    | Virtual private server | Hetzner Cloud                      |
+| Icon | Name       | Description            | Hardware                           |
+|:----:|------------|------------------------|------------------------------------|
+|  🐈‍⬛  | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 |
+|  🕷️  | `jorogumo` | Work laptop            | MacBook Pro M3                     |
+|  🐸  | `kappa`    | Personal laptop (old)  | ASUS ROG Zephyrus GX701            |
+|  👺  | `tengu`    | Virtual private server | Hetzner Cloud Server               |
