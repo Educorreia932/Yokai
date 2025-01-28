@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./immich.nix
     ./hardware-configuration.nix
+    ./immich.nix
+    ./monit.nix
     ./nginx.nix
     ./paperless.nix
     ../../modules/git.nix

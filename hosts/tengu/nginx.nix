@@ -38,6 +38,7 @@ in
     virtualHosts = {
       "immich" = mkVirtualHost "immich" "[::1]" config.services.immich.port;
       "paperless" = mkVirtualHost "paperless" "127.0.0.1" config.services.paperless.port;
+      "monit" = mkVirtualHost "monit" "[::1]" 2812;
     };
   };
   security.acme = {
