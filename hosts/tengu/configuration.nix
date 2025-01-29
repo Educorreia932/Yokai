@@ -7,6 +7,7 @@
     ./monit.nix
     ./nginx.nix
     ./paperless.nix
+    ./sharkey.nix
     ../../modules/git.nix
     ../../modules/home-manager.nix
     ../../modules/nix.nix

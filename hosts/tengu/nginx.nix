@@ -1,8 +1,7 @@
 { config, ... }:
 
 let
-  baseDomain = "educorreia932.dev";
-  mkVirtualHost = serverName: proxyAddress: port: {
+  mkVirtualHost = serverName: port: {
     listen = [
       {
         port = 80;
@@ -14,16 +13,15 @@ let
         ssl = true;
       }
     ];
-    serverName = "${serverName}.${baseDomain}";
+    serverName = "${serverName}";
     addSSL = true;
     enableACME = true;
-    root = "/var/lib/www/${serverName}.${baseDomain}";
+    root = "/var/lib/www/${serverName}";
     locations."/" = {
       proxyPass = "http://localhost:${toString port}";
       proxyWebsockets = true;
       recommendedProxySettings = true;
       extraConfig = ''
-        client_max_body_size 50000M;
         proxy_read_timeout   600s;
         proxy_send_timeout   600s;
         send_timeout         600s;
@@ -35,10 +33,12 @@ in
 {
   services.nginx = {
     enable = true;
-    virtualHosts = {
-      "immich" = mkVirtualHost "immich" "[::1]" config.services.immich.port;
-      "paperless" = mkVirtualHost "paperless" "127.0.0.1" config.services.paperless.port;
-      "monit" = mkVirtualHost "monit" "[::1]" 2812;
+    clientMaxBodySize = "1G";
+    virtualHosts = with config.services; {
+      "immich" = mkVirtualHost "immich.educorreia932.dev" immich.port;
+      "paperless" = mkVirtualHost "paperless.educorreia932.dev" paperless.port;
+      "monit" = mkVirtualHost "monit.educorreia932.dev" 2812;
+      "sharkey" = mkVirtualHost "tomobiki.city" sharkey.settings.port;
     };
   };
   security.acme = {
