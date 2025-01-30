@@ -31,6 +31,7 @@
     packages = with pkgs; [
       busybox
       nodejs_18
+      screen
       vim
       (yarn.override {
         nodejs = null;
