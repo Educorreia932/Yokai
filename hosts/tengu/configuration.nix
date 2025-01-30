@@ -30,7 +30,11 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       busybox
+      nodejs_18
       vim
+      (yarn.override {
+        nodejs = null;
+      })
     ];
   };
 

@@ -39,6 +39,7 @@ in
       "paperless" = mkVirtualHost "paperless.educorreia932.dev" paperless.port;
       "monit" = mkVirtualHost "monit.educorreia932.dev" 2812;
       "sharkey" = mkVirtualHost "tomobiki.city" sharkey.settings.port;
+      "website" = mkVirtualHost "educorreia932.dev" 3000;
     };
   };
   security.acme = {

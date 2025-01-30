@@ -7,12 +7,13 @@
 
 This server is configured to provide the following services:
 
-| Icon  | Name                                            | Description                         | URL                                      |
-| :---: | ----------------------------------------------- | ----------------------------------- | ---------------------------------------- |
-|   📄   | [Paperless-ngx](https://docs.paperless-ngx.com) | Document management                 | [🔗](https://paperless.educorreia932.dev) |
-|   📸   | [Immich](https://immich.app/)                   | Photo and video management          | [🔗](https://immich.educorreia932.dev)    |
-|   📊   | [Monit](https://mmonit.com/monit/)              | System monitoring tool              | [🔗](https://monit.educorreia932.dev)     |
-|   🦈   | [Sharkey](https://joinsharkey.org/)             | Decentralized social media platform | [🔗](https://tomobiki.city/)              |
+| Icon | Name                                                | Description                         | URL                                       |
+|:----:|-----------------------------------------------------|-------------------------------------|-------------------------------------------|
+|  📄  | [Paperless-ngx](https://docs.paperless-ngx.com)     | Document management                 | [🔗](https://paperless.educorreia932.dev) |
+|  📸  | [Immich](https://immich.app/)                       | Photo and video management          | [🔗](https://immich.educorreia932.dev)    |
+|  📊  | [Monit](https://mmonit.com/monit/)                  | System monitoring tool              | [🔗](https://monit.educorreia932.dev)     |
+|  🦈  | [Sharkey](https://joinsharkey.org/)                 | Decentralized social media platform | [🔗](https://tomobiki.city)               |
+|  🌐  | [Website](https://github.com/Educorreia932/Website) | Personal website                    | [🔗](https://educorreia932.dev)           |
 
 ## 📜 System Management
 
