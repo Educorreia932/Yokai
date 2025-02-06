@@ -1,16 +1,21 @@
 {
   pkgs,
   user,
+  outputs,
   ...
 }:
 
 {
   imports = [
-    ../../modules/direnv.nix
-    ../../modules/home-manager.nix
-    ../../modules/git.nix
-    ../../modules/nix.nix
-    ../../modules/zsh
+    ../../mixins/direnv.nix
+    ../../mixins/home-manager.nix
+    ../../mixins/git.nix
+    ../../mixins/nix.nix
+    ../../mixins/zsh
+  ];
+
+  nixpkgs.overlays = [
+    outputs.overlays.additions
   ];
 
   # WSL

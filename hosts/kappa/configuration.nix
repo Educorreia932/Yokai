@@ -5,16 +5,16 @@
     inputs.nur.nixosModules.nur
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
-    ../../modules/audio.nix
-    ../../modules/direnv.nix
-    ../../modules/fonts
-    ../../modules/git.nix
-    ../../modules/gnome.nix
-    .../../modules/immich.nix
-    ../../modules/nix.nix
-    ../../modules/nvidia.nix
-    ../../modules/steam.nix
-    ../../modules/zsh
+    ../../mixins/audio.nix
+    ../../mixins/direnv.nix
+    ../../mixins/fonts
+    ../../mixins/git.nix
+    ../../mixins/gnome.nix
+    .../../mixins/immich.nix
+    ../../mixins/nix.nix
+    ../../mixins/nvidia.nix
+    ../../mixins/steam.nix
+    ../../mixins/zsh
   ];
 
   # Configure booting
