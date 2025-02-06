@@ -1,9 +1,9 @@
 <div align=center>
-    <img src="kitsune.png" alt="Kitsune" height="200"/>
+    <img src="_img/kitsune.png" alt="Kitsune" height="200"/>
     <h1>Yōkai</h1>
 </div>
 
-This is my personal Nix(OS) configuration that I use across my machines.
+This is my personal [Nix(OS)](https://nixos.org/) configuration that I use across my machines.
 
 > Illustrations by [いらすとや](https://www.irasutoya.com/2013/05/blog-post_14.html)
 
