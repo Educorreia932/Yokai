@@ -1,4 +1,8 @@
-{ user, pkgs, ... }:
+{
+  user,
+  pkgs,
+  ...
+}:
 
 {
   users.users.${user}.shell = pkgs.zsh;
@@ -8,6 +12,7 @@
     home.packages = with pkgs; [
       fzf
     ];
+
     programs.zsh = {
       enable = true;
       autosuggestion.enable = true;

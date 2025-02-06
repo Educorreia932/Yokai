@@ -29,8 +29,8 @@ in
   services.sharkey = {
     enable = true;
     domain = "tomobiki.city";
-    database.passwordFile = ./sharkey-database-password;
-    redis.passwordFile = ./sharkey-redis-password;
+    database.passwordFile = ./database-password;
+    redis.passwordFile = ./redis-password;
     settings = {
       id = "aidx";
       port = 3001;
@@ -43,6 +43,6 @@ in
   };
 
   services.meilisearch = {
-    masterKeyEnvironmentFile = ./sharkey-meili-master-key;
+    masterKeyEnvironmentFile = ./meili-master-key;
   };
 }

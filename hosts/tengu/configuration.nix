@@ -7,11 +7,12 @@
     ./monit.nix
     ./nginx.nix
     ./paperless.nix
-    ./sharkey.nix
-    ../../modules/git.nix
-    ../../modules/home-manager.nix
-    ../../modules/nix.nix
-    ../../modules/zsh
+    ./sharkey
+    ../../mixins/direnv.nix
+    ../../mixins/git.nix
+    ../../mixins/home-manager.nix
+    ../../mixins/nix.nix
+    ../../mixins/zsh
   ];
 
   # Use the systemd-boot EFI boot loader.

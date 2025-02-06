@@ -7,38 +7,16 @@ This is my personal [Nix(OS)](https://nixos.org/) configuration that I use acros
 
 > Illustrations by [いらすとや](https://www.irasutoya.com/2013/05/blog-post_14.html)
 
-# 🗃️ Contents
+## 🗃️ Contents
  
 - [hosts/](hosts/) - Host-specific configuration
-- [modules/](modules/) - Individual application configuration
+- [lib/](lib/): Helper functions and attributes
+- [mixins/](mixins/) - Individual application configuration
+- [modules/](modules/) - Modules that can be enabled and configured through options
+- [overlays/](modules/) - Overlays to `nixpkgs`
+- [pkgs/](pkgs/) - Custom packages definitions
 
-## Useful Commands
-
-### Rebuild (NixOS)
-
-```sh
-sudo nixos-rebuild switch --flake .#<hostname>
-```
-
-### Rebuild (Darwin)
-
-```sh
-darwin-rebuild switch --flake .#<hostname>
-```
-
-### Update
-
-```sh
-nix flake update
-```
-
-### Garbage Collection
-
-```sh
-sudo nix-collect-garbage
-```
-
-## Hosts 
+## 💻 Hosts 
 
 | Icon | Name       | Description            | Hardware                           | System        |
 |:----:|------------|------------------------|------------------------------------|---------------|
@@ -47,3 +25,32 @@ sudo nix-collect-garbage
 |  🐸  | `kappa`    | Personal laptop (old)  | ASUS ROG Zephyrus GX701            | NixOS         |
 |  👺  | `tengu`    | Virtual private server | Hetzner Cloud Server               | NixOS         |
 
+## 📜 System Management
+
+### ⚒️ Rebuild (NixOS)
+
+```sh
+sudo nixos-rebuild switch --flake .#<hostname>
+```
+
+### ⚒️ Rebuild (Darwin)
+
+```sh
+darwin-rebuild switch --flake .#<hostname>
+```
+
+### 🔄 Update
+
+To update the `flake.lock` file:
+
+```sh
+nix flake update
+```
+
+### ♻️ Garbage Collection
+
+To remove unused packages:
+
+```sh
+sudo nix-collect-garbage
+```
