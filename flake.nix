@@ -68,10 +68,19 @@
           inherit system;
           modules = modules ++ [
             ./hosts/${host}/configuration.nix
+            agenix.nixosModules.default
+            {
+              environment.systemPackages = [ agenix.packages.${system}.default ];
+            }
             home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit inputs outputs host user;
+            inherit
+              inputs
+              outputs
+              host
+              user
+              ;
           };
         };
 
@@ -83,7 +92,12 @@
             home-manager.darwinModules.home-manager
           ];
           specialArgs = {
-            inherit inputs outputs host user;
+            inherit
+              inputs
+              outputs
+              host
+              user
+              ;
           };
         };
     in
@@ -102,7 +116,7 @@
       ];
 
       # Tengu
-      nixosConfigurations.tengu = mkNixOS "tengu" "aarch64-linux" [ ];
+      nixosConfigurations.tengu = mkNixOS "tengu" "eduardo" "aarch64-linux" [ ];
 
       # Custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
