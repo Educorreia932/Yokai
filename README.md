@@ -15,6 +15,7 @@ This is my personal [Nix(OS)](https://nixos.org/) configuration that I use acros
 - [modules/](modules/) - Modules that can be enabled and configured through options
 - [overlays/](modules/) - Overlays to `nixpkgs`
 - [pkgs/](pkgs/) - Custom packages definitions
+- [secrets/](secrets/) - Encrypted secrets
 
 ## 💻 Hosts 
 

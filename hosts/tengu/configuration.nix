@@ -8,6 +8,7 @@
     ./nginx.nix
     ./paperless.nix
     ./sharkey
+    ./transmission.nix
     ../../mixins/direnv.nix
     ../../mixins/git.nix
     ../../mixins/home-manager.nix
@@ -45,6 +46,10 @@
 
   # Disable the firewall
   networking.firewall.enable = false;
+
+  # Agenix
+  age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
+  age.secrets.transmission-password.file = ../../secrets/transmission-password.age;
 
   system.stateVersion = "24.11";
 }
