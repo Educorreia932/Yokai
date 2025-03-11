@@ -111,7 +111,7 @@
       nixosConfigurations.kappa = mkNixOS "kappa" "x86_64-linux" [ ];
 
       # Jorogumo
-      darwinConfigurations.jorogumo = mkDarwin "jorogumo" [
+      darwinConfigurations.jorogumo = mkDarwin "jorogumo" "eduardo.correia" [
         agenix.nixosModules.default
       ];
 
