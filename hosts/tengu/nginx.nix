@@ -40,7 +40,7 @@ in
       "monit" = mkVirtualHost "monit.educorreia932.dev" 2812;
       "sharkey" = mkVirtualHost "tomobiki.city" sharkey.settings.port;
       "transmission" = mkVirtualHost "transmission.educorreia932.dev" transmission.settings.rpc-port;
-      "website" = mkVirtualHost "educorreia932.dev" 3000;
+      "website" = mkVirtualHost "educorreia932.dev" website.port;
     };
   };
   security.acme = {
