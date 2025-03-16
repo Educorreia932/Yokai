@@ -9,6 +9,7 @@
     ./paperless.nix
     ./sharkey
     ./transmission.nix
+    ./website.nix
     ../../mixins/direnv.nix
     ../../mixins/git.nix
     ../../mixins/home-manager.nix
