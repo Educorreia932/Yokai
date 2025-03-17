@@ -42,6 +42,9 @@
     ];
   };
 
+  # Enable Sonata bot
+  services.sonata-bot.enable = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
