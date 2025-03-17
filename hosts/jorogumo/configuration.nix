@@ -15,6 +15,9 @@
     home = "/Users/${user}";
   };
 
+  # Enable sudo Touch ID authentication
+  security.pam.enableSudoTouchIdAuth = true;
+
   home-manager.users.${user} = {
     # Git configuration
     programs.git = {
