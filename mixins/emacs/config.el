@@ -1,19 +1,14 @@
-(with-eval-after-load 'lsp-mode
-  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
-  (lsp-register-client
-    (make-lsp-client
-    :new-connection (lsp-stdio-connection '("nil"))
-    :major-modes '(nix-mode)
-    :server-id 'nix-lsp)))
 
-;; Enable LSP in nix-mode
-(add-hook 'nix-mode-hook #'lsp)
+;;; -*- lexical-binding: t -*-
+ 
+;; Activate evil mode
+(setq evil-want-keybinding nil) 
+(require 'evil) 
 
-;; Set formatter (choose one)
-(setq lsp-nix-nil-formatter ["nixpkgs-fmt"])
+(require 'evil-collection ) 
 
-;; Enable LSP UI
-(use-package lsp-ui)
+(evil-collection-init) 
+(evil-mode 1) 
 
 ;; Display line numbers
 (global-display-line-numbers-mode 1)
