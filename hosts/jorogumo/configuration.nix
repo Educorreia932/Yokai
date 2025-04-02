@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hunter
     ../../mixins/direnv.nix
     ../../mixins/home-manager.nix
     ../../mixins/git.nix
