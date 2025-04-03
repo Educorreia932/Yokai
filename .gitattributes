@@ -1,1 +1,1 @@
-hunter.nix filter=git-crypt diff=git-crypt
+/hosts/jorogumo/hunter/* filter=git-crypt diff=git-crypt

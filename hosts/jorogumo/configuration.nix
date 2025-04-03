@@ -1,12 +1,18 @@
-{ pkgs, user, ... }:
+{
+  pkgs,
+  user,
+  ...
+}:
 
 {
   imports = [
     ./hunter
     ../../mixins/direnv.nix
+    ../../mixins/emacs
     ../../mixins/home-manager.nix
     ../../mixins/git.nix
     ../../mixins/nix.nix
+    ../../mixins/style.nix
     ../../mixins/zsh
   ];
 
@@ -20,15 +26,11 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   home-manager.users.${user} = {
-    # Git configuration
-    programs.git = {
-      userName = "Eduardo Correia";
-      userEmail = "eduardo.correia@freiheit.com";
-    };
     home = {
       # Installed packages
       packages = with pkgs; [
         _1password-cli
+        git-crypt
         nil
       ];
       homeDirectory = "/Users/${user}";
