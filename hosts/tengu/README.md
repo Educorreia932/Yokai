@@ -7,14 +7,15 @@
 
 This server is configured to provide the following services:
 
-| Icon  | Name                                                | Description                         | URL                                         |
-| :---: | --------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
-|   📄   | [Paperless-ngx](https://docs.paperless-ngx.com)     | Document management                 | [🔗](https://paperless.educorreia932.dev)    |
-|   📸   | [Immich](https://immich.app/)                       | Photo and video management          | [🔗](https://immich.educorreia932.dev)       |
-|   📊   | [Monit](https://mmonit.com/monit/)                  | System monitoring tool              | [🔗](https://monit.educorreia932.dev)        |
-|   🦈   | [Sharkey](https://joinsharkey.org/)                 | Decentralized social media platform | [🔗](https://tomobiki.city)                  |
-|   🧲   | [Transmission](https://transmissionbt.com/)         | Bittorrent client                   | [🔗](https://transmission.educorreia932.dev) |
-|   🌐   | [Website](https://github.com/Educorreia932/Website) | Personal website                    | [🔗](https://educorreia932.dev)              |
+| Icon  | Name                                                | Description                                                | URL                                         |
+| :---: | --------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
+|   📸   | [Immich](https://immich.app/)                       | Photo and video management                                 | [🔗](https://immich.educorreia932.dev)       |
+|   📚   | [Komga](https://komga.org/)                         | Media server for comics, mangas, BDs, magazines and eBooks | [🔗](https://komga.educorreia932.dev/)       |
+|   📊   | [Monit](https://mmonit.com/monit/)                  | System monitoring tool                                     | [🔗](https://monit.educorreia932.dev)        |
+|   📄   | [Paperless-ngx](https://docs.paperless-ngx.com)     | Document management                                        | [🔗](https://paperless.educorreia932.dev)    |
+|   🦈   | [Sharkey](https://joinsharkey.org/)                 | Decentralized social media platform                        | [🔗](https://tomobiki.city)                  |
+|   🧲   | [Transmission](https://transmissionbt.com/)         | Bittorrent client                                          | [🔗](https://transmission.educorreia932.dev) |
+|   🌐   | [Website](https://github.com/Educorreia932/Website) | Personal website                                           | [🔗](https://educorreia932.dev)              |
 
 ## 📜 System Management
 
