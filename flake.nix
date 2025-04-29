@@ -7,11 +7,6 @@
       url = "github:nixos/nixpkgs/nixos-24.11";
     };
 
-    # Community packages
-    nur = {
-      url = "github:nix-community/NUR";
-    };
-
     # User packages and dotfiles
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -40,6 +35,12 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Styling
+    stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -51,6 +52,7 @@
       nix-darwin,
       flake-utils,
       agenix,
+      stylix,
       ...
     }@inputs:
     let
@@ -73,6 +75,8 @@
               environment.systemPackages = [ agenix.packages.${system}.default ];
             }
             home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
+            ./modules/website.nix
           ];
           specialArgs = {
             inherit
