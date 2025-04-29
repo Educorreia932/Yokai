@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./immich.nix
+    ./komga.nix
     ./monit.nix
     ./nginx.nix
     ./paperless.nix
