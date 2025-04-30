@@ -9,6 +9,7 @@
     ./nginx.nix
     ./paperless.nix
     ./sharkey
+    ./slskd.nix
     ./transmission.nix
     ./website.nix
     ../../mixins/direnv.nix
