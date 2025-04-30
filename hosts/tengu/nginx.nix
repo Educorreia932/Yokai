@@ -40,6 +40,7 @@ in
       "paperless" = mkVirtualHost "paperless.educorreia932.dev" paperless.port;
       "monit" = mkVirtualHost "monit.educorreia932.dev" 2812;
       "sharkey" = mkVirtualHost "tomobiki.city" sharkey.settings.port;
+      "slskd" = mkVirtualHost "slskd.educorreia932.dev" slskd.settings.web.port;
       "transmission" = mkVirtualHost "transmission.educorreia932.dev" transmission.settings.rpc-port;
       "website" = mkVirtualHost "educorreia932.dev" website.port;
     };

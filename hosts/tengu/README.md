@@ -15,7 +15,8 @@ This server is configured to provide the following services:
 |   📄   | [Paperless-ngx](https://docs.paperless-ngx.com)     | Document management                                        | [🔗](https://paperless.educorreia932.dev)    |
 |   🦈   | [Sharkey](https://joinsharkey.org/)                 | Decentralized social media platform                        | [🔗](https://tomobiki.city)                  |
 |   🧲   | [Transmission](https://transmissionbt.com/)         | Bittorrent client                                          | [🔗](https://transmission.educorreia932.dev) |
-|   🌐   | [Website](https://github.com/Educorreia932/Website) | Personal website                                           | [🔗](https://educorreia932.dev)              |
+|   🐦   | [slskd](https://github.com/slskd/slskd)             | Client-server application for [Soulseek](https://slskd.educorreia932.dev/downloads) network | [🔗](https://slsk.educorreia932.dev)         |
+|   🧲   | [Transmission](https://transmissionbt.com/)         | Bittorrent client                                                                           | [🔗](https://transmission.educorreia932.dev) |
 
 ## 📜 System Management
 
