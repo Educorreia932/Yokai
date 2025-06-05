@@ -26,7 +26,7 @@
           "fzf"
         ];
       };
-      initExtra = builtins.readFile ./zshrc;
+      initContent = builtins.readFile ./zshrc;
     };
   };
 }

@@ -1,7 +1,7 @@
 {
   services.komga = {
     enable = true;
-    port = 25600;
+    settings.server.port = 25600;
     stateDir = "/mnt/media/komga";
   };
 }

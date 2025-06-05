@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+
   stylix = {
     image = ../_img/bakeneko.png;
     enable = true;
