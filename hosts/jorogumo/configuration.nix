@@ -23,7 +23,7 @@
   };
 
   # Enable sudo Touch ID authentication
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   home-manager.users.${user} = {
     home = {

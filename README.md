@@ -23,7 +23,6 @@ This is my personal [Nix(OS)](https://nixos.org/) configuration that I use acros
 |:----:|------------|------------------------|------------------------------------|---------------|
 |  🐈‍⬛  | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
 |  🕷️  | `jorogumo` | Work laptop            | MacBook Pro M3                     | macOS         |
-|  🐸  | `kappa`    | Personal laptop (old)  | ASUS ROG Zephyrus GX701            | NixOS         |
 |  👺  | `tengu`    | Virtual private server | Hetzner Cloud Server               | NixOS         |
 
 ## 📜 System Management

@@ -4,13 +4,14 @@
   imports = [
     ./hardware-configuration.nix
     ./immich.nix
+    ./jellyfin.nix
     ./komga.nix
     ./monit.nix
     ./nginx.nix
     ./paperless.nix
-    ./sharkey
+    # ./sharkey
     ./slskd.nix
-    ./transmission.nix
+    # ./transmission.nix
     ./website.nix
     ../../mixins/direnv.nix
     ../../mixins/git.nix
@@ -35,12 +36,8 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       busybox
-      nodejs_18
       screen
       vim
-      (yarn.override {
-        nodejs = null;
-      })
     ];
   };
 
@@ -51,8 +48,8 @@
   networking.firewall.enable = false;
 
   # Agenix
-  age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
-  age.secrets.transmission-password.file = ../../secrets/transmission-password.age;
+  # age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
+  # age.secrets.transmission-password.file = ../../secrets/transmission-password.age;
 
   system.stateVersion = "24.11";
 }
