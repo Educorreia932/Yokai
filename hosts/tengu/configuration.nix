@@ -9,9 +9,11 @@
     ./monit.nix
     ./nginx.nix
     ./paperless.nix
-    # ./sharkey
+    ./sharkey
     ./slskd.nix
     # ./transmission.nix
+    ./syncthing.nix
+    ./transmission.nix
     ./website.nix
     ../../mixins/direnv.nix
     ../../mixins/git.nix
@@ -36,8 +38,6 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       busybox
-      screen
-      vim
     ];
   };
 
