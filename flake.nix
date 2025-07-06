@@ -76,6 +76,7 @@
             }
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
+            ./modules/sonata-bot.nix
             ./modules/website.nix
           ];
           specialArgs = {
