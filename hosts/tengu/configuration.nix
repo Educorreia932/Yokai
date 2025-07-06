@@ -11,7 +11,7 @@
     ./paperless.nix
     ./sharkey
     ./slskd.nix
-    # ./transmission.nix
+    ./sonata-bot.nix
     ./syncthing.nix
     ./transmission.nix
     ./website.nix
@@ -48,8 +48,9 @@
   networking.firewall.enable = false;
 
   # Agenix
-  # age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
+  age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
   # age.secrets.transmission-password.file = ../../secrets/transmission-password.age;
+  age.secrets.sonataBotEnvFile.file = ../../secrets/sonata-bot-env.age;
 
   system.stateVersion = "24.11";
 }
