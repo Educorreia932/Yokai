@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 let
   sharkeyUrl = "https://raw.githubusercontent.com/sodiboo/system/e99b0ada3c0101d1e271e59e370b310daa6bb404/sharkey/";
 in
@@ -43,6 +45,7 @@ in
   };
 
   services.meilisearch = {
+    enable = lib.mkForce false;
     masterKeyEnvironmentFile = ./meili-master-key;
   };
 }
