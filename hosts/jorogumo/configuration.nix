@@ -6,7 +6,6 @@
 
 {
   imports = [
-    ./hunter
     ../../mixins/direnv.nix
     ../../mixins/emacs
     ../../mixins/home-manager.nix
@@ -30,7 +29,6 @@
       # Installed packages
       packages = with pkgs; [
         _1password-cli
-        git-crypt
         nil
       ];
       homeDirectory = "/Users/${user}";
