@@ -3,18 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./immich.nix
-    ./jellyfin.nix
-    ./komga.nix
-    ./monit.nix
+    ./services
     ./nginx.nix
-    ./paperless.nix
-    ./sharkey
-    ./slskd.nix
-    ./sonata-bot.nix
-    ./syncthing.nix
-    ./transmission.nix
-    ./website.nix
     ../../mixins/direnv.nix
     ../../mixins/git.nix
     ../../mixins/home-manager.nix
