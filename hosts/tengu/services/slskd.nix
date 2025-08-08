@@ -1,5 +1,5 @@
 {
-  services.slskd = rec {
+  services.slskd = {
     enable = true;
     domain = "slskd.educorreia932.dev";
     environmentFile = /etc/slskd.env;
@@ -10,11 +10,12 @@
         port = 2242;
       };
       directories = {
-        downloads = "/var/lib/slskd/downloads";
+        downloads = "/mnt/media/slskd/downloads";
+        incomplete = "/mnt/media/slskd/incomplete";
       };
       shares = {
         directories = [
-          settings.directories.downloads
+          "/mnt/media/slskd/shared"
         ];
       };
     };
