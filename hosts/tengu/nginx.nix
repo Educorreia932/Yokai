@@ -35,11 +35,11 @@ in
     enable = true;
     clientMaxBodySize = "1G";
     virtualHosts = with config.services; {
+      "homepage-dashboard" = mkVirtualHost "home.educorreia932.dev" homepage-dashboard.listenPort;
       "immich" = mkVirtualHost "immich.educorreia932.dev" immich.port;
       "jellyfin" = mkVirtualHost "jellyfin.educorreia932.dev" 8096;
       "komga" = mkVirtualHost "komga.educorreia932.dev" komga.settings.server.port;
       "paperless" = mkVirtualHost "paperless.educorreia932.dev" paperless.port;
-      "monit" = mkVirtualHost "monit.educorreia932.dev" 2812;
       "slskd" = mkVirtualHost "slskd.educorreia932.dev" slskd.settings.web.port;
       "syncthing" = mkVirtualHost "syncthing.educorreia932.dev" 8384;
       "transmission" = mkVirtualHost "transmission.educorreia932.dev" transmission.settings.rpc-port;
