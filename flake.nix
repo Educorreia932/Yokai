@@ -64,62 +64,39 @@
         "x86_64-darwin"
       ];
 
-      mkNixOS =
-        host: user: system: modules:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = modules ++ [
-            ./hosts/${host}/configuration.nix
-            agenix.nixosModules.default
-            {
-              environment.systemPackages = [ agenix.packages.${system}.default ];
-            }
-            home-manager.nixosModules.home-manager
-            stylix.nixosModules.stylix
-            ./modules/sonata-bot.nix
-            ./modules/website.nix
-          ];
-          specialArgs = {
-            inherit
-              inputs
-              outputs
-              host
-              user
-              ;
-          };
-        };
-
-      mkDarwin =
-        host: user: modules:
-        nix-darwin.lib.darwinSystem {
-          modules = modules ++ [
-            ./hosts/${host}/configuration.nix
-            home-manager.darwinModules.home-manager
-            stylix.darwinModules.stylix
-          ];
-          specialArgs = {
-            inherit
-              inputs
-              outputs
-              host
-              user
-              ;
-          };
-        };
+      mkNixOS = import ./lib/mk-nixos.nix { inherit inputs outputs; };
+      mkDarwin = import ./lib/mk-darwin.nix { inherit inputs outputs; };
     in
     {
       # Bakeneko
-      nixosConfigurations.bakeneko = mkNixOS "bakeneko" "nixos" "x86_64-linux" [
-        nixos-wsl.nixosModules.default
-      ];
+      nixosConfigurations.bakeneko = mkNixOS {
+        user = "nixos";
+        host = "bakeneko";
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.default
+        ];
+      };
 
       # Jorogumo
-      darwinConfigurations.jorogumo = mkDarwin "jorogumo" "eduardo.correia" [
-        agenix.nixosModules.default
-      ];
+      darwinConfigurations.jorogumo = mkDarwin {
+        host = "jorogumo";
+        user = "eduardo.correia";
+        modules = [
+          agenix.nixosModules.default
+        ];
+      };
 
       # Tengu
-      nixosConfigurations.tengu = mkNixOS "tengu" "eduardo" "aarch64-linux" [ ];
+      nixosConfigurations.tengu = mkNixOS {
+        user = "eduardo";
+        host = "tengu";
+        system = "aarch64-linux";
+        modules = [
+          ./modules/sonata-bot.nix
+          ./modules/website.nix
+        ];
+      };
 
       # Custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
