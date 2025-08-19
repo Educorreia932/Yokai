@@ -43,6 +43,7 @@
       # Installed packages
       packages = with pkgs; [
         ffmpeg
+        just
         nil
         yt-dlp
         wget
