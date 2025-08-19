@@ -31,6 +31,18 @@
     ];
   };
 
+  security.sudo.extraRules = [
+    {
+      groups = [ "wheel" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
