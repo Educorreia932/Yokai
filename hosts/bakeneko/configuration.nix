@@ -8,15 +8,19 @@
 {
   imports = [
     ../../mixins/direnv.nix
+    ../../mixins/emacs
     ../../mixins/home-manager.nix
     ../../mixins/git.nix
     ../../mixins/nix.nix
+    ../../mixins/style.nix
     ../../mixins/zsh
   ];
 
   nixpkgs.overlays = [
     outputs.overlays.additions
   ];
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # WSL
   wsl.enable = true;

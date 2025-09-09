@@ -1,3 +1,5 @@
+set shell := ["zsh", "-cu"]
+
 # List all the just commands
 default:
     just --list
@@ -6,13 +8,21 @@ default:
 clean:
     sudo nix-collect-garbage --delete-old
 
+# Update the flake.lock file
+update:
+    nix flake update
+
 [private]
 rebuild-pre:
-    git add *.nix
+    git add -A
 
 # Rebuild the system configuration
 rebuild HOST: rebuild-pre
-    sudo nixos-rebuild switch --flake .#{{HOST}}
+    if [[ "{{HOST}}" == "jorogumo" ]]; then \
+        sudo darwin-rebuild switch --flake .#{{HOST}}; \
+    else \
+        sudo nixos-rebuild switch --flake .#{{HOST}}; \
+    fi
 
 # Rebuild the system configuration for a specific host
 deploy HOST TARGET: rebuild-pre
