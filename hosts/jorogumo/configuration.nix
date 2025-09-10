@@ -10,6 +10,7 @@
     ../../mixins/emacs
     ../../mixins/home-manager.nix
     ../../mixins/git.nix
+    ../../mixins/lf.nix
     ../../mixins/nix.nix
     ../../mixins/style.nix
     ../../mixins/zsh
@@ -28,7 +29,7 @@
     home = {
       # Installed packages
       packages = with pkgs; [
-        _1password-cli
+        just
         nil
       ];
       homeDirectory = "/Users/${user}";

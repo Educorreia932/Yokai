@@ -6,7 +6,6 @@
     ./services
     ./nginx.nix
     ../../mixins/direnv.nix
-    ../../mixins/git.nix
     ../../mixins/home-manager.nix
     ../../mixins/nix.nix
     ../../mixins/zsh

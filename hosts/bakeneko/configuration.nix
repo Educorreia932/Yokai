@@ -11,6 +11,7 @@
     ../../mixins/emacs
     ../../mixins/home-manager.nix
     ../../mixins/git.nix
+    ../../mixins/lf.nix
     ../../mixins/nix.nix
     ../../mixins/style.nix
     ../../mixins/zsh
