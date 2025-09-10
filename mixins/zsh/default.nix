@@ -21,11 +21,12 @@
         theme = "robbyrussell";
         plugins = [
           "1password"
+          "fzf"
           "git"
           "sudo"
-          "fzf"
         ];
       };
+      syntaxHighlighting.enable = true;
       initContent = builtins.readFile ./zshrc;
     };
   };
