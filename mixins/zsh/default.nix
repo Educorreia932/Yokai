@@ -23,6 +23,7 @@
           "1password"
           "fzf"
           "git"
+          "kubectl"
           "sudo"
         ];
       };
