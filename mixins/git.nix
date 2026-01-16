@@ -9,6 +9,11 @@
   home-manager.users.${user} = {
     programs.git = {
       enable = true;
+      extraConfig = {
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+        pull.rebase = true;
+      };
       ignores = [
         ".direnv"
         ".vscode"
