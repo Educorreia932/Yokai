@@ -19,5 +19,8 @@
   nixpkgs.config.allowUnfree = true;
 
   # Formatting
-  environment.systemPackages = [ pkgs.nixfmt-rfc-style ];
+  environment.systemPackages = [
+    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt-tree
+  ];
 }

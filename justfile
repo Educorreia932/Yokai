@@ -12,6 +12,9 @@ clean:
 update:
     nix flake update
 
+format:
+    treefmt
+
 [private]
 rebuild-pre:
     git add -A
