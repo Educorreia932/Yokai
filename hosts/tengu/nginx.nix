@@ -43,7 +43,7 @@ in
       "paperless" = mkVirtualHost "paperless.educorreia932.dev" paperless.port;
       "slskd" = mkVirtualHost "slskd.educorreia932.dev" slskd.settings.web.port;
       "syncthing" = mkVirtualHost "syncthing.educorreia932.dev" 8384;
-      "transmission" = mkVirtualHost "transmission.educorreia932.dev" transmission.settings.rpc-port;
+      "tomobiki" = mkVirtualHost "tomobiki.educorreia932.dev" sharkey.settings.port;
       "website" = mkVirtualHost "educorreia932.dev" website.port;
     };
   };
