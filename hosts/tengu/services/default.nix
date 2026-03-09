@@ -1,5 +1,6 @@
 {
   imports = [
+    ./firefly-iii.nix
     ./homepage-dashboard.nix
     ./immich.nix
     ./jellyfin.nix

@@ -35,6 +35,7 @@ in
     enable = true;
     clientMaxBodySize = "1G";
     virtualHosts = with config.services; {
+      "firefly-iii" = mkVirtualHost "firefly-iii.educorreia932.dev" 8100;
       "homepage-dashboard" = mkVirtualHost "home.educorreia932.dev" homepage-dashboard.listenPort;
       "immich" = mkVirtualHost "immich.educorreia932.dev" immich.port;
       "jellyfin" = mkVirtualHost "jellyfin.educorreia932.dev" 8096;
