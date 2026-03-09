@@ -28,7 +28,10 @@
         ];
       };
       syntaxHighlighting.enable = true;
-      initContent = builtins.readFile ./zshrc;
+      initContent = ''
+        # Remove duplicate commands from history
+        setopt hist_ignore_all_dups
+      '';
     };
   };
 }

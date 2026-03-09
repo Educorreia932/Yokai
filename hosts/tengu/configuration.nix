@@ -8,7 +8,7 @@
     ../../mixins/direnv.nix
     ../../mixins/home-manager.nix
     ../../mixins/nix.nix
-    ../../mixins/zsh
+    ../../mixins/zsh.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -24,9 +24,14 @@
   users.users.${user} = {
     home = "/home/${user}";
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "sonata-bot"
+    ];
     packages = with pkgs; [
       coreutils
+      litecli
+      systemctl-tui
     ];
   };
 

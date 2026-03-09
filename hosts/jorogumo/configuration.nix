@@ -14,7 +14,7 @@
     ../../mixins/lf.nix
     ../../mixins/nix.nix
     ../../mixins/style.nix
-    ../../mixins/zsh
+    ../../mixins/zsh.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
