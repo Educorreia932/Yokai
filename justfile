@@ -21,18 +21,21 @@ rebuild-pre:
 
 # Rebuild the system configuration
 rebuild HOST: rebuild-pre
-    if [[ "{{HOST}}" == "jorogumo" ]]; then \
-        sudo darwin-rebuild switch --flake .#{{HOST}}; \
+    if [[ "{{ HOST }}" == "jorogumo" ]]; then \
+        sudo darwin-rebuild switch --flake .#{{ HOST }}; \
     else \
-        sudo nixos-rebuild switch --flake .#{{HOST}}; \
+        sudo nixos-rebuild switch --flake .#{{ HOST }}; \
     fi
 
 # Rebuild the system configuration for a specific host
+[group('deployment')]
 deploy HOST TARGET: rebuild-pre
-    nixos-rebuild switch --flake .#{{HOST}} \
-        --target-host {{TARGET}} \
+    nixos-rebuild switch --flake .#{{ HOST }} \
+        --target-host {{ TARGET }} \
         --use-remote-sudo \
         --show-trace
 
+# Alias to "just deploy tengu eduardo@educorreia932.dev"
+[group('deployment')]
 deploy-tengu:
     just deploy tengu eduardo@educorreia932.dev
