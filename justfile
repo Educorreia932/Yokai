@@ -32,7 +32,7 @@ rebuild HOST: rebuild-pre
 deploy HOST TARGET: rebuild-pre
     nixos-rebuild switch --flake .#{{ HOST }} \
         --target-host {{ TARGET }} \
-        --use-remote-sudo \
+        --sudo \
         --show-trace
 
 # Alias to "just deploy tengu eduardo@educorreia932.dev"
