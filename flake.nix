@@ -4,12 +4,12 @@
   inputs = {
     # System packages
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-25.05";
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
 
     # User packages and dotfiles
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,7 +21,7 @@
 
     # Nix Darwin
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+      url = "github:LnL7/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,7 +38,7 @@
 
     # Styling
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
