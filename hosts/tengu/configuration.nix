@@ -50,8 +50,8 @@
 
   # Agenix
   age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
-  # age.secrets.transmission-password.file = ../../secrets/transmission-password.age;
   age.secrets.sonataBotEnvFile.file = ../../secrets/sonata-bot-env.age;
+  age.secrets.dashboardEnv.file = ../../secrets/homepage-dashboard-env.age;
 
   system.stateVersion = "24.11";
 }
