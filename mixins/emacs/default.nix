@@ -17,6 +17,8 @@
           corfu
         ];
     };
+
+    stylix.targets.emacs.enable = true;
   };
 
   environment.variables.EDITOR = "emacs";
