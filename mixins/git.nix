@@ -17,6 +17,9 @@
       ignores = [
         ".direnv"
         ".vscode"
+        "*.crt"
+        "*.key"
+        "*.pfx"
       ];
     };
 
