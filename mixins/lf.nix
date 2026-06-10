@@ -9,6 +9,9 @@
   home-manager.users.${user} = {
     programs.lf = {
       enable = true;
+      keybindings = {
+        "." = "set hidden!";
+      };
     };
 
     programs.zsh = lib.mkIf config.programs.zsh.enable {
