@@ -20,7 +20,7 @@
 
   # Formatting
   environment.systemPackages = [
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
     pkgs.nixfmt-tree
   ];
 }
