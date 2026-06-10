@@ -6,8 +6,10 @@
     ./services
     ./nginx.nix
     ../../mixins/direnv.nix
+    ../../mixins/emacs
     ../../mixins/home-manager.nix
     ../../mixins/nix.nix
+    ../../mixins/style.nix
     ../../mixins/zsh.nix
   ];
 
