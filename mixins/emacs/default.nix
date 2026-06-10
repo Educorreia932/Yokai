@@ -1,4 +1,10 @@
-{ user, pkgs, ... }:
+{
+  user,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   home-manager.users.${user} = {
@@ -18,7 +24,7 @@
         ];
     };
 
-    stylix.targets.emacs.enable = true;
+    stylix.targets.emacs.enable = lib.mkIf config.stylix.enable true;
   };
 
   environment.variables.EDITOR = "emacs";
