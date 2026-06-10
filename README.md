@@ -5,6 +5,8 @@
 
 This is my personal [Nix(OS)](https://nixos.org/) configuration that I use across my machines.
 
+I use `just` as a task runner to manage my configuration. You can run `just --list` to see all available tasks.
+
 > Illustrations by [いらすとや](https://www.irasutoya.com/2013/05/blog-post_14.html)
 
 ## 🗃️ Contents
@@ -24,33 +26,3 @@ This is my personal [Nix(OS)](https://nixos.org/) configuration that I use acros
 |  🐈‍⬛  | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
 |  🕷️  | `jorogumo` | Work laptop            | MacBook Pro M3                     | macOS         |
 |  👺  | `tengu`    | Virtual private server | Hetzner Cloud Server               | NixOS         |
-
-## 📜 System Management
-
-### ⚒️ Rebuild (NixOS)
-
-```sh
-sudo nixos-rebuild switch --flake .#<hostname>
-```
-
-### ⚒️ Rebuild (Darwin)
-
-```sh
-darwin-rebuild switch --flake .#<hostname>
-```
-
-### 🔄 Update
-
-To update the `flake.lock` file:
-
-```sh
-nix flake update
-```
-
-### ♻️ Garbage Collection
-
-To remove unused packages:
-
-```sh
-sudo nix-collect-garbage
-```
