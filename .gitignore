@@ -1,0 +1,13 @@
+# Nix
+result
+result-*
+
+# direnv
+.direnv/
+
+# Secrets
+env
+*.env
+*.key
+secrets/*-app-key
+!*.age

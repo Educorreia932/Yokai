@@ -5,15 +5,15 @@
 let
   lyricsgenius = pkgs.callPackage ./lyricsgenius.nix { };
 in
-pkgs.python3Packages.buildPythonApplication {
+pkgs.python3Packages.buildPythonApplication rec {
   pname = "sonata-bot";
   version = "0.1.0";
 
-  src = builtins.fetchGit {
-    url = "git@github.com:hsc00/sonata-bot.git";
-    ref = "refactor";
-    rev = "3e2f654f73f1d8d608904f69a55344d84af6601d";
-    allRefs = true;
+  src = pkgs.fetchFromGitHub {
+    owner = "hsc00";
+    repo = pname;
+    rev = "main";
+    sha256 = "sha256-B19BFhIaMo9YEt6rvj+5ekw5OlaWkkUz8r5x1wudWwI=";
   };
 
   propagatedBuildInputs = with pkgs.python3Packages; [
@@ -28,9 +28,12 @@ pkgs.python3Packages.buildPythonApplication {
     syncedlyrics
   ];
 
+  pyproject = true;
+  build-system = with pkgs.python3Packages; [ setuptools ];
+
   meta = {
     description = "A Discord bot for music lovers";
-    homepage = "https://github.com/hsc00/sonata-bot";
+    homepage = "https://hsc00.github.io/sonata-bot/";
     maintainers = with pkgs.lib.maintainers; [
       educorreia932
     ];

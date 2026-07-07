@@ -2,7 +2,6 @@
 
 {
   stylix = {
-    image = ../_img/bakeneko.png;
     enable = true;
     polarity = "dark";
     autoEnable = true;
@@ -26,29 +25,6 @@
       base0D = "E0E3C8";
       base0E = "E0E3C8";
       base0F = "E0E3C8";
-    };
-
-    # Fonts
-    fonts = {
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-
-      monospace = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans Mono";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
     };
   };
 }

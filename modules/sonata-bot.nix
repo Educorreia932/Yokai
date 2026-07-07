@@ -5,9 +5,6 @@
   ...
 }:
 
-let
-  sonata-bot = import ./../pkgs/sonata-bot.nix { pkgs = pkgs; };
-in
 {
   options.services.sonata-bot = {
     enable = lib.mkEnableOption "Sonata Bot";
@@ -30,7 +27,7 @@ in
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
-        ExecStart = "${sonata-bot}/bin/sonata-bot";
+        ExecStart = "${pkgs.sonata-bot}/bin/sonata-bot";
         EnvironmentFile = config.services.sonata-bot.environmentFile;
         Restart = "on-failure";
         StateDirectory = "sonata-bot";

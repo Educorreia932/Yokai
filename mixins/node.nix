@@ -1,9 +1,13 @@
 { pkgs, user, ... }:
 
 {
-  home-manager.users.${user} = {
-    home.packages = with pkgs; [ nodejs ];
-    home.file.".npmrc".text = ''
+  home-manager.users.${user}.home = {
+    packages = with pkgs; [
+      nodejs
+      pnpm
+    ];
+    file.".npmrc".text = ''
+
       prefix = ''${HOME}/.npm-packages
     '';
   };

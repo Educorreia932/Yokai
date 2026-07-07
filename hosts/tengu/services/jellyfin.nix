@@ -1,14 +1,13 @@
-{ pkgs, ... }:
+{ mkServiceHost, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
-  ];
-
   services.jellyfin = {
     enable = true;
     openFirewall = true;
+  };
+
+  services.nginx.virtualHosts.jellyfin = mkServiceHost {
+    subdomain = "jellyfin";
+    port = 8096;
   };
 }

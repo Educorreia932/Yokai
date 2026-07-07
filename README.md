@@ -14,6 +14,7 @@ I use `just` as a task runner to manage my configuration. You can run `just --li
 - [hosts/](hosts/) - Host-specific configuration
 - [lib/](lib/): Helper functions and attributes
 - [mixins/](mixins/) - Individual application configuration
+- [profiles/](profiles/) - Profiles that can be applied to hosts
 - [modules/](modules/) - Modules that can be enabled and configured through options
 - [overlays/](modules/) - Overlays to `nixpkgs`
 - [pkgs/](pkgs/) - Custom packages definitions

@@ -7,15 +7,8 @@
 
 {
   imports = [
-    ../../mixins/direnv.nix
-    ../../mixins/emacs
-    ../../mixins/home-manager.nix
-    ../../mixins/git.nix
-    ../../mixins/lf.nix
-    ../../mixins/nix.nix
+    ../../profiles/workstation.nix
     ../../mixins/node.nix
-    ../../mixins/style.nix
-    ../../mixins/zsh.nix
   ];
 
   nixpkgs.overlays = [
@@ -26,6 +19,7 @@
 
   # WSL
   wsl.enable = true;
+  wsl.interop.register = true;
   wsl.extraBin = with pkgs; [
     { src = "${coreutils}/bin/uname"; }
     { src = "${coreutils}/bin/dirname"; }
@@ -38,6 +32,7 @@
   users.users.${user} = {
     group = "users";
     home = "/home/${user}";
+    extraGroups = [ "docker" ];
   };
 
   home-manager.users.${user} = {

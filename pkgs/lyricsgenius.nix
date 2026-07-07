@@ -6,14 +6,18 @@
 
 python3Packages.buildPythonPackage rec {
   pname = "lyricsgenius";
-  version = "3.0.1";
+  version = "3.7.0";
 
   src = python3Packages.fetchPypi {
     inherit pname version;
-    sha256 = "sha256-g671X/yguOppZRxLFEaT0cASaHp9pX+I0JWzM/LhiSg=";
+    sha256 = "sha256-yvZEoiX6H5zaIEPlgauGy+i510xwtO4trOtV7yPrTP0=";
   };
 
+  pyproject = true;
+  build-system = with python3Packages; [ hatchling ];
+
   propagatedBuildInputs = with python3Packages; [
+    beautifulsoup4
     requests
   ];
 
