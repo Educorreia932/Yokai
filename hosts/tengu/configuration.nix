@@ -1,16 +1,17 @@
-{ pkgs, user, ... }:
+{
+  pkgs,
+  user,
+  inputs,
+  outputs,
+  ...
+}:
 
 {
   imports = [
+    inputs.sure-nix.nixosModules.sure
     ./hardware-configuration.nix
     ./services
-    ./nginx.nix
-    ../../mixins/direnv.nix
-    ../../mixins/emacs
-    ../../mixins/home-manager.nix
-    ../../mixins/nix.nix
-    ../../mixins/style.nix
-    ../../mixins/zsh.nix
+    ../../profiles/common.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -22,6 +23,11 @@
 
   # Set time zone
   time.timeZone = "Europe/Lisbon";
+
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.szurubooru
+  ];
 
   users.users.${user} = {
     home = "/home/${user}";
@@ -57,8 +63,10 @@
 
   # Agenix
   age.identityPaths = [ "/home/eduardo/.ssh/id_ed25519" ];
-  age.secrets.sonataBotEnvFile.file = ../../secrets/sonata-bot-env.age;
+
   age.secrets.dashboardEnv.file = ../../secrets/homepage-dashboard-env.age;
+  age.secrets.sonataBotEnvFile.file = ../../secrets/sonata-bot-env.age;
+  age.secrets.szurubooruSecret.file = ../../secrets/szurubooru-secret.age;
 
   system.stateVersion = "24.11";
 }

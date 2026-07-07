@@ -9,9 +9,16 @@ clean:
     sudo nix-collect-garbage --delete-old
 
 # Update the flake.lock file
+[group('flake')]
 update:
     nix flake update
 
+# Check the flake for errors 
+[group('flake')]
+check:
+    nix flake check --all-systems
+
+# Format everything
 format:
     treefmt
 
@@ -20,18 +27,18 @@ rebuild-pre:
     git add -A
 
 # Rebuild the system configuration
-rebuild HOST: rebuild-pre
-    if [[ "{{ HOST }}" == "jorogumo" ]]; then \
-        sudo darwin-rebuild switch --flake .#{{ HOST }}; \
+rebuild host: rebuild-pre
+    if nix eval --json .#darwinConfigurations --apply builtins.attrNames 2>/dev/null | grep -q '"{{ host }}"'; then \
+        sudo darwin-rebuild switch --flake .#{{ host }}; \
     else \
-        sudo nixos-rebuild switch --flake .#{{ HOST }}; \
+        sudo nixos-rebuild switch --flake .#{{ host }}; \
     fi
 
 # Rebuild the system configuration for a specific host
 [group('deployment')]
-deploy HOST TARGET: rebuild-pre
-    nixos-rebuild switch --flake .#{{ HOST }} \
-        --target-host {{ TARGET }} \
+deploy host target: rebuild-pre
+    nixos-rebuild switch --flake .#{{ host }} \
+        --target-host {{ target }} \
         --sudo \
         --show-trace
 
@@ -39,3 +46,20 @@ deploy HOST TARGET: rebuild-pre
 [group('deployment')]
 deploy-tengu:
     just deploy tengu eduardo@educorreia932.dev
+
+# Create or update a secret
+[group('secrets')]
+secret-edit name:
+    cd secrets && agenix -e {{ name }}.age
+
+alias secret-create := secret-edit
+
+# Delete a secret file
+[group('secrets')]
+secret-delete name:
+    cd secrets && rm {{ name }}.age
+
+# Rekey all secrets (run after adding a new public key)
+[group('secrets')]
+secret-rekey:
+    cd secrets && agenix -r

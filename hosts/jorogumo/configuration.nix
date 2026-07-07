@@ -6,15 +6,8 @@
 
 {
   imports = [
-    ../../mixins/direnv.nix
-    ../../mixins/emacs
-    ../../mixins/home-manager.nix
-    ../../mixins/git.nix
+    ../../profiles/workstation.nix
     ../../mixins/k9s.nix
-    ../../mixins/lf.nix
-    ../../mixins/nix.nix
-    ../../mixins/style.nix
-    ../../mixins/zsh.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";

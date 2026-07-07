@@ -25,7 +25,7 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "${pkgs.nodejs_20}/bin/node ${website}/.output/server/index.mjs";
+        ExecStart = "${pkgs.nodejs}/bin/node ${website}/.output/server/index.mjs";
         Restart = "always";
         User = "nobody";
         ProtectSystem = "strict";

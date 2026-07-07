@@ -9,7 +9,7 @@
   home-manager.users.${user} = {
     programs.git = {
       enable = true;
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         pull.rebase = true;

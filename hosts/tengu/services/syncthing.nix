@@ -1,3 +1,5 @@
+{ mkServiceHost, ... }:
+
 {
   services.syncthing = {
     enable = true;
@@ -5,5 +7,10 @@
     dataDir = "/mnt/media/syncthing";
     openDefaultPorts = true;
     guiAddress = "0.0.0.0:8384";
+  };
+
+  services.nginx.virtualHosts.syncthing = mkServiceHost {
+    subdomain = "syncthing";
+    port = 8384;
   };
 }

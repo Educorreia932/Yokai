@@ -1,38 +1,27 @@
 { pkgs }:
 
-let
+pkgs.stdenv.mkDerivation {
+  pname = "educorreia932-dev";
+  version = "master";
+
   src = pkgs.fetchFromGitHub {
     owner = "Educorreia932";
     repo = "Website";
     rev = "master";
     sha256 = "sha256-4lXhhFP/egIfMk80ex2eerNxEMs9Of0RAwYBwmsHlos=";
   };
-  node-modules = pkgs.mkYarnPackage {
-    name = "node-modules";
-    src = src;
-  };
-in
-pkgs.stdenv.mkDerivation {
-  pname = "educorreia932-dev";
-  name = "educorreia932-dev";
 
-  src = src;
-
-  buildInputs = with pkgs; [
-    node-modules
-    yarn
+  buildInputs = [
+    pkgs.nodejs
+    pkgs.yarn
   ];
 
-  buildPhase = ''
-    export HOME=$(mktemp -d)
-    export YARN_CACHE_FOLDER=$HOME/.yarn-cache
-    touch $HOME/.nuxtrc
-    ln -s ${node-modules}/libexec/educorreia932.dev/node_modules node_modules
-    echo -e "n" | ${pkgs.yarn}/bin/yarn build
-  '';
+  # Use the built-in yarn hooks
+  yarnLock = "yarn.lock";
+  packageJSON = "package.json";
 
   installPhase = ''
-    mkdir $out
+    mkdir -p $out
     mv .output $out/
   '';
 

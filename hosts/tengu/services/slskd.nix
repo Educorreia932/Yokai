@@ -1,7 +1,14 @@
 {
+  config,
+  mkServiceHost,
+  domain,
+  ...
+}:
+
+{
   services.slskd = {
     enable = true;
-    domain = "slskd.educorreia932.dev";
+    domain = "slskd.${domain}";
     environmentFile = /etc/slskd.env;
     settings = {
       soulseek = {
@@ -19,5 +26,17 @@
         ];
       };
     };
+  };
+
+  # Make data directory writable by everyone
+  systemd.tmpfiles.rules = [
+    "d /mnt/media/slskd 0777 slskd slskd -"
+  ];
+
+  systemd.services.slskd.serviceConfig.UMask = "0000";
+
+  services.nginx.virtualHosts.slskd = mkServiceHost {
+    subdomain = "slskd";
+    port = config.services.slskd.settings.web.port;
   };
 }

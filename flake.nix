@@ -41,6 +41,12 @@
       url = "github:danth/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Sure Nix
+    sure-nix = {
+      url = "github:nSimonFR/sure-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -61,50 +67,48 @@
         "aarch64-linux"
         "x86_64-linux"
         "aarch64-darwin"
-        "x86_64-darwin"
       ];
 
       mkNixOS = import ./lib/mk-nixos.nix { inherit inputs outputs; };
       mkDarwin = import ./lib/mk-darwin.nix { inherit inputs outputs; };
+      mkHost =
+        builder: host: cfg:
+        builder (cfg // { inherit host; });
     in
     {
-      # Bakeneko
-      nixosConfigurations.bakeneko = mkNixOS {
-        user = "nixos";
-        host = "bakeneko";
-        system = "x86_64-linux";
-        modules = [
-          nixos-wsl.nixosModules.default
-        ];
+      # Host configurations
+      nixosConfigurations = nixpkgs.lib.mapAttrs (mkHost mkNixOS) {
+        bakeneko = {
+          user = "nixos";
+          system = "x86_64-linux";
+          modules = [ nixos-wsl.nixosModules.default ];
+        };
+
+        tengu = {
+          user = "eduardo";
+          system = "aarch64-linux";
+          modules = [
+            ./modules/sonata-bot.nix
+            ./modules/website.nix
+          ];
+        };
       };
 
-      # Jorogumo
-      darwinConfigurations.jorogumo = mkDarwin {
-        host = "jorogumo";
-        user = "eduardo.correia";
-        modules = [
-          agenix.nixosModules.default
-        ];
-      };
-
-      # Tengu
-      nixosConfigurations.tengu = mkNixOS {
-        user = "eduardo";
-        host = "tengu";
-        system = "aarch64-linux";
-        modules = [
-          ./modules/sonata-bot.nix
-          ./modules/website.nix
-        ];
+      darwinConfigurations = nixpkgs.lib.mapAttrs (mkHost mkDarwin) {
+        jorogumo = {
+          user = "eduardo.correia";
+          system = "aarch64-darwin";
+          modules = [ ];
+        };
       };
 
       # Custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
 
-      # Custom packages; acessible via 'nix build', 'nix shell', etc
+      # Custom packages
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-      # Formatter for .nix files, available via 'nix fmt'
+      # Formatter for .nix files
       formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
     };
 }
