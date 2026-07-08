@@ -47,6 +47,12 @@
       url = "github:nSimonFR/sure-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Terranix
+    terranix = {
+      url = "github:terranix/terranix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -59,6 +65,7 @@
       flake-utils,
       agenix,
       stylix,
+      terranix,
       ...
     }@inputs:
     let
@@ -110,5 +117,14 @@
 
       # Formatter for .nix files
       formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
+
+      apps = forAllSystems (
+        system:
+        import ./infrastructure {
+          inherit system terranix;
+          pkgs = nixpkgs.legacyPackages.${system};
+          agenix = inputs.agenix.packages.${system}.default;
+        }
+      );
     };
 }

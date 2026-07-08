@@ -8,6 +8,7 @@
 {
   imports = [
     ../../profiles/workstation.nix
+    ../../mixins/cloud.nix
     ../../mixins/node.nix
   ];
 

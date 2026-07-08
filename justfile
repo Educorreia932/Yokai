@@ -47,6 +47,21 @@ deploy host target: rebuild-pre
 deploy-tengu:
     just deploy tengu eduardo@educorreia932.dev
 
+# Preview infrastructure changes
+[group('infrastructure')]
+infra-plan:
+    nix run .#infra-plan
+
+# Apply infrastructure changes
+[group('infrastructure')]
+infra-apply:
+    nix run .#infra-apply
+
+# Destroy infrastructure
+[group('infrastructure')]
+infra-destroy:
+    nix run .#infra-destroy
+
 # Create or update a secret
 [group('secrets')]
 secret-edit name:
