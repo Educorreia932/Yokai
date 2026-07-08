@@ -12,6 +12,7 @@ I use `just` as a task runner to manage my configuration. You can run `just --li
 ## 🗃️ Contents
  
 - [hosts/](hosts/) - Host-specific configuration
+- [infrastructure/](infrastructure/) - Cloud infrastructure provisioning
 - [lib/](lib/): Helper functions and attributes
 - [mixins/](mixins/) - Individual application configuration
 - [profiles/](profiles/) - Profiles that can be applied to hosts
@@ -27,3 +28,7 @@ I use `just` as a task runner to manage my configuration. You can run `just --li
 |  🐈‍⬛  | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
 |  🕷️  | `jorogumo` | Work laptop            | MacBook Pro M3                     | macOS         |
 |  👺  | `tengu`    | Virtual private server | Hetzner Cloud Server               | NixOS         |
+
+## ☁️ Infrastructure
+
+The [`tengu`](hosts/tengu/) server runs on [Hetzner Cloud](https://www.hetzner.com/cloud/), and its resources are declared with [Terranix](https://terranix.org/).
