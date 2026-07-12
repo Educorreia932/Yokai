@@ -53,6 +53,23 @@ in
     recommendedTlsSettings = true;
 
     clientMaxBodySize = "1G";
+
+    # Prevent direct IP access from falling through to an application vhost.
+    virtualHosts."00-default-deny" = {
+      default = true;
+      serverName = "_";
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+        {
+          addr = "[::]";
+          port = 80;
+        }
+      ];
+      locations."/".return = "404";
+    };
   };
 
   # Enable ACME for automatic TLS certificates
