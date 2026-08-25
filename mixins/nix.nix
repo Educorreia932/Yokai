@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   nix = {
@@ -10,8 +10,7 @@
     ];
     settings.trusted-users = [
       "root"
-      "eduardo"
-      "nixos"
+      user
     ];
   };
 
@@ -19,8 +18,8 @@
   nixpkgs.config.allowUnfree = true;
 
   # Formatting
-  environment.systemPackages = [
-    pkgs.nixfmt
-    pkgs.nixfmt-tree
+  environment.systemPackages = with pkgs; [
+    nixfmt
+    nixfmt-tree
   ];
 }
