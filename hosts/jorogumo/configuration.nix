@@ -28,6 +28,24 @@
       ];
       homeDirectory = "/Users/${user}";
     };
+
+    programs.git = {
+      settings = {
+        credential.helper = "osxkeychain";
+      };
+      includes = [
+        {
+          condition = "gitdir:~/Documents/Trumpf/**";
+          contents = {
+            user = {
+              name = "Eduardo-Correia-external";
+              email = "eduardo.correia.external@trumpf.com";
+              signingkey = "~/.ssh/trumpf";
+            };
+          };
+        }
+      ];
+    };
   };
 
   system.stateVersion = 5;

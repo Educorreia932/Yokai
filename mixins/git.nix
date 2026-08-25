@@ -14,6 +14,17 @@
         push.autoSetupRemote = true;
         pull.rebase = true;
         rebase.autoStash = true;
+        user = {
+          name = "Eduardo Correia";
+          email = "skelozard1@gmail.com";
+          signingkey = "~/.ssh/github";
+        };
+        commit.gpgSign = true;
+        tag.forceSignAnnotated = false;
+        gpg = {
+          format = "ssh";
+          ssh.program = "ssh-keygen";
+        };
       };
       ignores = [
         ".direnv"
