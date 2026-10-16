@@ -12,9 +12,25 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  nix.settings.trusted-users = [
+    "root"
+    "@admin"
+    user
+  ];
+
+  nix.linux-builder = {
+    enable = true;
+    config = {
+      virtualisation.darwin-builder.diskSize = 51200; # 50 GB (MiB)
+      virtualisation.darwin-builder.memorySize = 8192; # 8 GB (MiB)
+    };
+  };
+
   users.users.${user} = {
     home = "/Users/${user}";
   };
+
+  system.primaryUser = user;
 
   # Enable sudo Touch ID authentication
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -23,6 +39,8 @@
     home = {
       # Installed packages
       packages = with pkgs; [
+        colima
+        docker
         just
         nil
       ];
