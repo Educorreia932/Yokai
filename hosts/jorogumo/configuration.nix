@@ -35,6 +35,9 @@
   # Enable sudo Touch ID authentication
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Disable automatic insertion of periods on every double space
+  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+
   home-manager.users.${user} = {
     home = {
       # Installed packages
