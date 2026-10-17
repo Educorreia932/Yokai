@@ -1,15 +1,22 @@
 {
   description = "My personal NixOS configuration";
 
+  nixConfig = {
+    extra-substituters = [ "https://gooru.cachix.org" ];
+    extra-trusted-public-keys = [
+      "gooru.cachix.org-1:I2qP1U67fpxRdT1y4pmb0sj/X4Xs846Yi4/P481+SnM="
+    ];
+  };
+
   inputs = {
     # System packages
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-26.05";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
     # User packages and dotfiles
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,7 +28,7 @@
 
     # Nix Darwin
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-26.05";
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,19 +45,13 @@
 
     # Styling
     stylix = {
-      url = "github:danth/stylix/release-26.05";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Sure Nix
-    sure-nix = {
-      url = "github:nSimonFR/sure-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Terranix
-    terranix = {
-      url = "github:terranix/terranix";
+    # Gooru
+    gooru = {
+      url = "github:fiso64/gooru/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -65,7 +66,7 @@
       flake-utils,
       agenix,
       stylix,
-      terranix,
+      gooru,
       ...
     }@inputs:
     let
@@ -93,10 +94,12 @@
 
         tengu = {
           user = "eduardo";
-          system = "aarch64-linux";
+          system = "x86_64-linux";
           modules = [
             ./modules/sonata-bot.nix
+            ./modules/slink.nix
             ./modules/website.nix
+            gooru.nixosModules.default
           ];
         };
       };
@@ -117,14 +120,5 @@
 
       # Formatter for .nix files
       formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
-
-      apps = forAllSystems (
-        system:
-        import ./infrastructure {
-          inherit system terranix;
-          pkgs = nixpkgs.legacyPackages.${system};
-          agenix = inputs.agenix.packages.${system}.default;
-        }
-      );
     };
 }

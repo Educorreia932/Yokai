@@ -4,12 +4,11 @@
   domain,
   ...
 }:
-
 {
   services.slskd = {
     enable = true;
     domain = "slskd.${domain}";
-    environmentFile = /etc/slskd.env;
+    environmentFile = config.age.secrets.slskdEnv.path;
     settings = {
       soulseek = {
         username = "Skelozard";
@@ -17,23 +16,13 @@
         port = 2242;
       };
       directories = {
-        downloads = "/mnt/media/slskd/downloads";
-        incomplete = "/mnt/media/slskd/incomplete";
-      };
-      shares = {
-        directories = [
-          "/mnt/media/slskd/shared"
-        ];
+        downloads = "/var/lib/slskd/downloads";
+        incomplete = "/var/lib/slskd/incomplete";
       };
     };
   };
 
-  # Make data directory writable by everyone
-  systemd.tmpfiles.rules = [
-    "d /mnt/media/slskd 0777 slskd slskd -"
-  ];
-
-  systemd.services.slskd.serviceConfig.UMask = "0000";
+  systemd.services.slskd.serviceConfig.UMask = "0002";
 
   services.nginx.virtualHosts.slskd = mkServiceHost {
     subdomain = "slskd";

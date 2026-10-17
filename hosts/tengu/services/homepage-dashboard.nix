@@ -30,13 +30,12 @@
         };
       };
     };
-    # environmentFile = config.age.secrets.dashboardEnv.path;
-    environmentFiles = [ "/home/eduardo/env" ];
+    environmentFiles = [ config.age.secrets.homepageDashboardEnv.path ];
     widgets = [
       {
         resources = {
           cpu = true;
-          disk = "/mnt/media";
+          disk = "/";
           memory = true;
         };
       }
@@ -70,6 +69,7 @@
                 {
                   type = "jellyfin";
                   url = href;
+                  key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
                   enableBlocks = true;
                   enableUser = false;
                   enableNowPlaying = false;
@@ -109,11 +109,17 @@
             };
           }
           {
-            "Szurubooru" = rec {
-              href = "https://szurubooru.${domain}";
+            "Romm" = rec {
+              href = "https://romm.${domain}";
               siteMonitor = href;
-              description = "Image board";
-              icon = "https://raw.githubusercontent.com/rr-/szurubooru/refs/heads/master/client/img/app.png";
+              description = "ROM manager";
+              icon = "sh-romm";
+              widgets = [
+                {
+                  type = "romm";
+                  url = href;
+                }
+              ];
             };
           }
         ];
@@ -141,25 +147,21 @@
             ];
           }
           {
-            "Sync" = [
-              {
-                "Syncthing" = rec {
-                  href = "https://syncthing.${domain}";
-                  siteMonitor = href;
-                  description = "Continuous file synchronization";
-                  icon = "sh-syncthing";
-                };
-              }
-            ];
-          }
-          {
             "Personal" = [
               {
-                "Sure" = rec {
-                  href = "https://sure.${domain}";
+                "SilverBullet" = rec {
+                  href = "https://silverbullet.${domain}";
                   siteMonitor = href;
-                  description = "Finance and budgeting manager";
-                  icon = "https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/sure-finance.png";
+                  description = "Note taking";
+                  icon = "sh-silverbullet";
+                };
+              }
+              {
+                "Trek" = rec {
+                  href = "https://trek.${domain}";
+                  siteMonitor = href;
+                  description = "Travel planning";
+                  icon = "sh-trek";
                 };
               }
             ];
@@ -169,7 +171,7 @@
               {
                 "Sonata Bot" = {
                   href = "https://hsc00.github.io/sonata-bot/";
-                  description = "A Discord bot for music lovers ";
+                  description = "A Discord bot for music lovers";
                   icon = "https://raw.githubusercontent.com/hsc00/sonata-bot/main/logo.png";
                 };
               }

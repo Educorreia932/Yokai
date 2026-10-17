@@ -13,7 +13,7 @@ pkgs.python3Packages.buildPythonApplication rec {
     owner = "hsc00";
     repo = pname;
     rev = "main";
-    sha256 = "sha256-B19BFhIaMo9YEt6rvj+5ekw5OlaWkkUz8r5x1wudWwI=";
+    sha256 = "sha256-7F46UsEg4OBjvRaBCT305AeVlIU5KaINcuXY2pc9OWQ=";
   };
 
   propagatedBuildInputs = with pkgs.python3Packages; [

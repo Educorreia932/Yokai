@@ -23,12 +23,8 @@ I use `just` as a task runner to manage my configuration. You can run `just --li
 
 ## 💻 Hosts 
 
-| Icon | Name       | Description            | Hardware                           | System        |
-|:----:|------------|------------------------|------------------------------------|---------------|
-|  🐈‍⬛  | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
-|  🕷️  | `jorogumo` | Work laptop            | MacBook Pro M3                     | macOS         |
-|  👺  | `tengu`    | Virtual private server | Hetzner Cloud Server               | NixOS         |
-
-## ☁️ Infrastructure
-
-The [`tengu`](hosts/tengu/) server runs on [Hetzner Cloud](https://www.hetzner.com/cloud/), and its resources are declared with [Terranix](https://terranix.org/).
+| Icon  | Name       | Description            | Hardware                           | System        |
+| :---: | ---------- | ---------------------- | ---------------------------------- | ------------- |
+|  🐈‍⬛   | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
+|   🕷️   | `jorogumo` | Work laptop            | MacBook Pro M3                     | macOS         |
+|   👺   | `tengu`    | Virtual private server | Beelink Me Pro 2                   | NixOS         |

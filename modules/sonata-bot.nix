@@ -5,6 +5,9 @@
   ...
 }:
 
+let
+  cfg = config.services.sonata-bot;
+in
 {
   options.services.sonata-bot = {
     enable = lib.mkEnableOption "Sonata Bot";
@@ -21,14 +24,14 @@
     };
   };
 
-  config = lib.mkIf config.services.sonata-bot.enable {
+  config = lib.mkIf cfg.enable {
     systemd.services.sonata-bot = {
       description = "A Discord bot for music lovers";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         ExecStart = "${pkgs.sonata-bot}/bin/sonata-bot";
-        EnvironmentFile = config.services.sonata-bot.environmentFile;
+        EnvironmentFile = cfg.environmentFile;
         Restart = "on-failure";
         StateDirectory = "sonata-bot";
         WorkingDirectory = "/var/lib/sonata-bot";

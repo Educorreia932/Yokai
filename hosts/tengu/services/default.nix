@@ -7,12 +7,10 @@
     ./komga.nix
     ./nginx.nix
     ./paperless.nix
-    ./sharkey.nix
+    ./silverbullet.nix
     ./slskd.nix
     ./sonata-bot.nix
-    ./sure.nix
-    ./syncthing.nix
-    ./szurubooru.nix
-    ./website.nix
+    ./romm.nix
+    ./trek.nix
   ];
 }

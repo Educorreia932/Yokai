@@ -42,7 +42,6 @@ deploy host target: rebuild-pre
         --sudo \
         --show-trace
 
-# Alias to "just deploy tengu eduardo@educorreia932.dev"
 [group('deployment')]
 deploy-tengu:
     just deploy tengu eduardo@educorreia932.dev
@@ -64,17 +63,17 @@ infra-destroy:
 
 # Create or update a secret
 [group('secrets')]
-secret-edit name:
+secrets-edit name:
     cd secrets && agenix -e {{ name }}.age
 
-alias secret-create := secret-edit
+alias secrets-create := secrets-edit
 
 # Delete a secret file
 [group('secrets')]
-secret-delete name:
+secrets-delete name:
     cd secrets && rm {{ name }}.age
 
 # Rekey all secrets (run after adding a new public key)
 [group('secrets')]
-secret-rekey:
+secrets-rekey:
     cd secrets && agenix -r
