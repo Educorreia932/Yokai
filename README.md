@@ -25,6 +25,6 @@ I use `just` as a task runner to manage my configuration. You can run `just --li
 
 | Icon  | Name       | Description            | Hardware                           | System        |
 | :---: | ---------- | ---------------------- | ---------------------------------- | ------------- |
-|  🐈‍⬛   | `bakeneko` | Personal laptop (new)  | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
+|  🐈‍⬛   | `bakeneko` | Personal laptop        | ASUS ROG Zephyrus G16 (2024) GU605 | Windows (WSL) |
 |   🕷️   | `jorogumo` | Work laptop            | MacBook Pro M3                     | macOS         |
 |   👺   | `tengu`    | Virtual private server | Beelink Me Pro 2                   | NixOS         |
