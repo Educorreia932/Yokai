@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -7,6 +8,7 @@
 
 let
   cfg = config.services.sonata-bot;
+  sonata = inputs.sonata.packages.${pkgs.system}.default;
 in
 {
   options.services.sonata-bot = {
@@ -30,7 +32,7 @@ in
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
-        ExecStart = "${pkgs.sonata-bot}/bin/sonata-bot";
+        ExecStart = "${sonata}/bin/sonata";
         EnvironmentFile = cfg.environmentFile;
         Restart = "on-failure";
         StateDirectory = "sonata-bot";

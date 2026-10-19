@@ -54,6 +54,12 @@
       url = "github:fiso64/gooru/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Sonata
+    sonata = {
+      url = "github:Educorreia932/Sonata";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
