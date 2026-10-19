@@ -67,7 +67,6 @@
       rommEnv.file = ../../secrets/romm-env.age;
       slskdEnv.file = ../../secrets/slskd-env.age;
       sonataBotEnvFile.file = ../../secrets/sonata-bot-env.age;
-      resticPassword.file = ../../secrets/restic-password.age;
     };
   };
 
