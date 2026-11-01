@@ -212,27 +212,6 @@
         "type": "gitlab"
       }
     },
-    "gooru": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1790256826,
-        "narHash": "sha256-DupBPspK9Jw/9mHdY3r3UUUS8VIoSTvrRmQ8mcpBoFE=",
-        "owner": "fiso64",
-        "repo": "gooru",
-        "rev": "2bc33756bbbdb8925e254401cf83d5704a33935e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fiso64",
-        "ref": "main",
-        "repo": "gooru",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -362,7 +341,6 @@
       "inputs": {
         "agenix": "agenix",
         "flake-utils": "flake-utils",
-        "gooru": "gooru",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixos-wsl": "nixos-wsl",

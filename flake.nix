@@ -1,13 +1,6 @@
 {
   description = "My personal NixOS configuration";
 
-  nixConfig = {
-    extra-substituters = [ "https://gooru.cachix.org" ];
-    extra-trusted-public-keys = [
-      "gooru.cachix.org-1:I2qP1U67fpxRdT1y4pmb0sj/X4Xs846Yi4/P481+SnM="
-    ];
-  };
-
   inputs = {
     # System packages
     nixpkgs = {
@@ -49,12 +42,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Gooru
-    gooru = {
-      url = "github:fiso64/gooru/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Sonata
     sonata = {
       url = "github:Educorreia932/Sonata";
@@ -72,7 +59,6 @@
       flake-utils,
       agenix,
       stylix,
-      gooru,
       ...
     }@inputs:
     let
@@ -105,7 +91,6 @@
             ./modules/sonata-bot.nix
             ./modules/slink.nix
             ./modules/website.nix
-            gooru.nixosModules.default
           ];
         };
       };
