@@ -6,7 +6,7 @@ default:
 
 # Delete old generations
 clean:
-    sudo nix-collect-garbage --delete-old
+    nh clean all
 
 # Update the flake.lock file
 [group('flake')]
@@ -29,37 +29,19 @@ rebuild-pre:
 # Rebuild the system configuration
 rebuild host: rebuild-pre
     if nix eval --json .#darwinConfigurations --apply builtins.attrNames 2>/dev/null | grep -q '"{{ host }}"'; then \
-        sudo darwin-rebuild switch --flake .#{{ host }}; \
+        nh darwin switch . -H {{ host }}; \
     else \
-        sudo nixos-rebuild switch --flake .#{{ host }}; \
+        nh os switch . -H {{ host }}; \
     fi
 
 # Rebuild the system configuration for a specific host
 [group('deployment')]
 deploy host target: rebuild-pre
-    nixos-rebuild switch --flake .#{{ host }} \
-        --target-host {{ target }} \
-        --sudo \
-        --show-trace
+    nh os switch . -H {{ host }} --target-host {{ target }}
 
 [group('deployment')]
 deploy-tengu:
     just deploy tengu eduardo@educorreia932.dev
-
-# Preview infrastructure changes
-[group('infrastructure')]
-infra-plan:
-    nix run .#infra-plan
-
-# Apply infrastructure changes
-[group('infrastructure')]
-infra-apply:
-    nix run .#infra-apply
-
-# Destroy infrastructure
-[group('infrastructure')]
-infra-destroy:
-    nix run .#infra-destroy
 
 # Create or update a secret
 [group('secrets')]
@@ -73,7 +55,7 @@ alias secrets-create := secrets-edit
 secrets-delete name:
     cd secrets && rm {{ name }}.age
 
-# Rekey all secrets (run after adding a new public key)
+# Rekey all secrets
 [group('secrets')]
 secrets-rekey:
     cd secrets && agenix -r

@@ -7,6 +7,7 @@
     ../mixins/emacs
     ../mixins/home-manager.nix
     ../mixins/nix.nix
+    ../mixins/nh.nix
     ../mixins/style.nix
     ../mixins/zsh.nix
   ];
