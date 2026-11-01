@@ -16,7 +16,6 @@ This server is configured to provide the following services:
 |   📄   | [Paperless-ngx](https://docs.paperless-ngx.com) | Document manager                                                                            | [🔗](https://paperless.educorreia932.dev)    |
 |   🎮   | [RomM](https://romm.app/)                       | ROM manager and player                                                                      | [🔗](https://romm.educorreia932.dev/)        |
 |   🐦   | [slskd](https://github.com/slskd/slskd)         | Client-server application for [Soulseek](https://slskd.educorreia932.dev/downloads) network | [🔗](https://slsk.educorreia932.dev)         |
-|   🖊️   | [Silver Bullet](https://silverbullet.md/)       | Note taking app                                                                             | [🔗](https://silverbullet.educorreia932.dev) |
 |   🎵   | [Sonata](https://github.com/hsc00/sonata-bot)   | Discord bot for music lovers                                                                | N/A                                         |
 |   ✈️   | [Trek](https://demo.liketrek.com)               | Travel planner                                                                              | [🔗](https://trek.educorreia932.dev)         |
 

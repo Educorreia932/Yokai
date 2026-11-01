@@ -149,14 +149,6 @@
           {
             "Personal" = [
               {
-                "SilverBullet" = rec {
-                  href = "https://silverbullet.${domain}";
-                  siteMonitor = href;
-                  description = "Note taking";
-                  icon = "sh-silverbullet";
-                };
-              }
-              {
                 "Trek" = rec {
                   href = "https://trek.${domain}";
                   siteMonitor = href;

@@ -7,7 +7,6 @@
     ./komga.nix
     ./nginx.nix
     ./paperless.nix
-    ./silverbullet.nix
     ./slskd.nix
     ./sonata-bot.nix
     ./romm.nix
