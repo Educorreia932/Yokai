@@ -70,6 +70,7 @@
                   type = "jellyfin";
                   url = href;
                   key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
+                  version = 2;
                   enableBlocks = true;
                   enableUser = false;
                   enableNowPlaying = false;
