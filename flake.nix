@@ -89,7 +89,6 @@
           system = "x86_64-linux";
           modules = [
             ./modules/sonata-bot.nix
-            ./modules/slink.nix
             ./modules/website.nix
           ];
         };
