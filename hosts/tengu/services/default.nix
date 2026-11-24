@@ -4,6 +4,7 @@
     ./homepage-dashboard.nix
     ./immich.nix
     ./jellyfin.nix
+    ./kept.nix
     ./komga.nix
     ./nginx.nix
     ./paperless.nix
